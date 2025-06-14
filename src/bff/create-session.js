@@ -1,33 +1,53 @@
-import { removeComment } from './session';
 import { ROLE } from '../constants';
+import { AppError, ErrorTypes } from './error-types';
+import { removeComment } from './session';
+import { generateDate } from './generate-date';
 
-export const createSession = (roleId) => {
-    const session = {
-        logout() {
-            Object.keys(this).forEach((key) => {
-                delete this[key];
-            });
-        },
-    };
+const baseSessionActions = {
+    logout() {
+        Object.keys(this).forEach((key) => {
+            delete this[key];
+        });
+    },
+};
 
-    switch (roleId) {
-        case ROLE.ADMIN:
-            {
-                session.removeComment = removeComment;
-            }
-            break;
-        case ROLE.MODERATOR:
-            {
-                session.removeComment = removeComment;
-            }
-            break;
-        case ROLE.USER:
-            break;
-        default:
-            ROLE.GUEST;
+const rolePermissions = {
+    [ROLE.ADMIN]: {
+        ...baseSessionActions,
+        removeComment,
+        canModerate: true,
+        canManageUsers: true,
+    },
+    [ROLE.MODERATOR]: {
+        ...baseSessionActions,
+        removeComment,
+        canModerate: true,
+    },
+    [ROLE.USER]: {
+        ...baseSessionActions,
+    },
+    [ROLE.GUEST]: {
+        ...baseSessionActions,
+    },
+};
+
+/**
+ * Создает сессию пользователя с соответствующими правами доступа
+ * @param {number} roleId - ID роли пользователя из констант ROLE
+ * @returns {Object} Объект сессии с правами доступа
+ * @throws {AppError} Если роль пользователя некорректна
+ */
+export const createSession = (roleId = ROLE.GUEST) => {
+    if (!(roleId in rolePermissions)) {
+        throw new AppError(
+            ErrorTypes.VALIDATION_ERROR,
+            'Некорректная роль пользователя'
+        );
     }
 
     return {
-        roleId: roleId || 'guest',
+        ...rolePermissions[roleId],
+        roleId,
+        createdAt: generateDate(),
     };
 };
