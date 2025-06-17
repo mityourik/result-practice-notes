@@ -1,8 +1,21 @@
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
+import { StyledHeader } from './components';
+
+const AppColumn = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 75%;
+    height: 100%;
+    background-color: #f0f0f0;
+    margin: 0 auto;
+`;
 
 const Div = styled.div`
     text-align: center;
+    color: #333;
+    font-size: 1.2em;
 `;
 
 const Content = styled.div`
@@ -12,15 +25,12 @@ const Content = styled.div`
 
 const H2 = styled.h2`
     text-align: center;
+    color: #333;
 `;
 
-const Header = styled.header`
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-`;
+const Footer = (className) => <div className={className}>Футер</div>;
 
-const Footer = styled.footer`
+const StyledFooter = styled(Footer)`
     width: 100%;
     padding: 20px;
     text-align: center;
@@ -28,8 +38,8 @@ const Footer = styled.footer`
 
 function Blog() {
     return (
-        <>
-            <Header>Хедер блога</Header>
+        <AppColumn>
+            <StyledHeader />
             <Content>
                 <H2>Контент блога</H2>
                 <Routes>
@@ -53,7 +63,7 @@ function Blog() {
                 </Routes>
             </Content>
             <Footer>Футер блога</Footer>
-        </>
+        </AppColumn>
     );
 }
 
