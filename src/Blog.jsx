@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { StyledHeader } from './components';
+import { Footer } from './components';
 
 const AppColumn = styled.div`
     display: flex;
@@ -27,8 +28,6 @@ const H2 = styled.h2`
     text-align: center;
     color: #333;
 `;
-
-const Footer = (className) => <div className={className}>Футер</div>;
 
 const StyledFooter = styled(Footer)`
     width: 100%;

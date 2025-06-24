@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Icon } from '../Icon/Icon';
+import { Link } from 'react-router-dom';
 
 const TextsContainer = styled.div`
     display: flex;
@@ -25,17 +26,18 @@ const SmallText = styled.div`
 `;
 
 const LogoContainer = ({ className }) => (
-    <div className={className}>
+    <Link className={className} to="/">
         <Icon size="49px" id="fa-code" />
         <TextsContainer>
             <LargeText>Блог</LargeText>
             <SmallText>веб-разработчика</SmallText>
         </TextsContainer>
-    </div>
+    </Link>
 );
 
 export const Logo = styled(LogoContainer)`
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-decoration: none;
 `;
