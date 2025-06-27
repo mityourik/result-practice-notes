@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { StyledHeader } from './components';
+import { Authorization } from './pages';
 import { Footer } from './components';
 
 const AppColumn = styled.div`
@@ -29,12 +30,6 @@ const H2 = styled.h2`
     color: #333;
 `;
 
-const StyledFooter = styled(Footer)`
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-`;
-
 function Blog() {
     return (
         <AppColumn>
@@ -43,7 +38,7 @@ function Blog() {
                 <H2>Контент блога</H2>
                 <Routes>
                     <Route path="/" element={<Div>Главная страница</Div>} />
-                    <Route path="/login" element={<Div>Авторизация</Div>} />
+                    <Route path="/login" element={<Authorization />} />
                     <Route path="/register" element={<Div>Регистрация</Div>} />
                     <Route
                         path="/users"
@@ -61,7 +56,7 @@ function Blog() {
                     />
                 </Routes>
             </Content>
-            <Footer>Футер блога</Footer>
+            <Footer />
         </AppColumn>
     );
 }

@@ -29,7 +29,7 @@ export class HttpClient {
                 const error = await response.json().catch(() => ({}));
                 throw new AppError(
                     ErrorTypes.API_ERROR,
-                    error.message || `HTTP error! status: ${response.status}`
+                    error.message || `HTTP ошибка: ${response.status}`
                 );
             }
 

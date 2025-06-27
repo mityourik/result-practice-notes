@@ -15,7 +15,6 @@ const ArticleLink = styled.a`
     font-weight: 600;
     font-size: 0.5em;
     text-decoration: none;
-    margin-bottom: 6px;
     text-align: left;
     &:hover {
         color: #3498db;
@@ -38,7 +37,6 @@ const Title = styled.h3`
     font-size: 0.6em;
     font-weight: 700;
     margin: 0 0 8px 0;
-    text-transform: uppercase;
 `;
 
 const NewsBlock = styled.div`
@@ -82,7 +80,7 @@ export const Footer = () => {
                     <Message>Нет публичных коммитов</Message>
                 ) : (
                     <>
-                        <Title>My last commit on GitHub:</Title>
+                        <Title>моя активность на GitHub:</Title>
                         <ArticleLink
                             href={commit.url}
                             target="_blank"
@@ -104,7 +102,14 @@ export const Footer = () => {
                 />
             </ActivityBlock>
             <InfoBlock>
-                <Title>Информация</Title>
+                <Title>Мой телеграм:</Title>
+                <ArticleLink
+                    href="https://t.me/dmitriho"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    @dmitriho
+                </ArticleLink>
             </InfoBlock>
         </FooterContainer>
     );

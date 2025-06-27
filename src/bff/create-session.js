@@ -1,6 +1,6 @@
 import { ROLE } from '../constants';
 import { AppError, ErrorTypes } from './error-types';
-import { removeComment } from './session';
+import { removeComment } from './session/remove-comment';
 import { generateDate } from './generate-date';
 
 const baseSessionActions = {
