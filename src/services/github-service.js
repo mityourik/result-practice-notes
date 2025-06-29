@@ -4,7 +4,7 @@
  * @param {number} limit - Сколько событий вернуть
  * @returns {Promise<Array>} Массив событий
  */
-export const getGithubUserEvents = async (username, limit = 1) => {
+const getGithubUserEvents = async (username, limit = 1) => {
     try {
         const response = await fetch(
             `https://api.github.com/users/${username}/events/public`
@@ -19,7 +19,7 @@ export const getGithubUserEvents = async (username, limit = 1) => {
 };
 
 /**
- * Получить последний коммит пользователя (по публичным событиям)
+ * Получить последний коммит (по публичным событиям)
  * @param {string} username - GitHub username
  * @returns {Promise<Object|null>} Объект коммита или null
  */

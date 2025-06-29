@@ -8,6 +8,8 @@ const FooterContainer = styled.footer`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
 `;
 
 const ArticleLink = styled.a`
@@ -80,7 +82,7 @@ export const Footer = () => {
                     <Message>Нет публичных коммитов</Message>
                 ) : (
                     <>
-                        <Title>моя активность на GitHub:</Title>
+                        <Title>last activity:</Title>
                         <ArticleLink
                             href={commit.url}
                             target="_blank"
@@ -102,7 +104,7 @@ export const Footer = () => {
                 />
             </ActivityBlock>
             <InfoBlock>
-                <Title>Мой телеграм:</Title>
+                <Title>telegram:</Title>
                 <ArticleLink
                     href="https://t.me/dmitriho"
                     target="_blank"

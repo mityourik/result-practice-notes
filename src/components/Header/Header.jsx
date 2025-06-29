@@ -15,13 +15,21 @@ const Discription = styled.p`
 
 const Header = styled.header`
     width: 100%;
+    max-width: 900px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: #f0f0f0;
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    padding: 5px 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    box-sizing: border-box;
-    padding: 5px 20px;
 `;
 
 const HeaderContainer = () => (

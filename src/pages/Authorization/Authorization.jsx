@@ -1,9 +1,11 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { server } from '../../bff';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import * as yup from 'yup';
+import { server } from '../../bff';
+import { Button, Input } from '../../components';
 
 const authFromSchema = yup.object().shape({
     login: yup
@@ -26,17 +28,39 @@ const authFromSchema = yup.object().shape({
         ),
 });
 
+const LinkForAuth = styled(Link)`
+    text-decoration: none;
+    color: rgb(100, 100, 200);
+    font-size: 0.9em;
+    text-align: center;
+    margin: 15px 0 0 0;
+
+    &:hover {
+        color: rgb(50, 50, 150);
+    }
+`;
+
+const ErrorMessage = styled.div`
+    font-size: 0.8em;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #fcadad;
+    border-radius: 2px;
+    padding: 4px;
+`;
+
 const AuthorizationContainer = ({ className }) => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isValid },
     } = useForm({
         defaultValues: {
             login: '',
             password: '',
         },
         resolver: yupResolver(authFromSchema),
+        mode: 'onChange',
     });
 
     const [serverError, setServerError] = useState(null);
@@ -58,20 +82,27 @@ const AuthorizationContainer = ({ className }) => {
         <div className={className}>
             <h2>Авторизация</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <input
+                <Input
                     type="text"
                     placeholder="Логин..."
                     {...register('login')}
                 />
-                <input
+                <Input
                     type="password"
                     placeholder="Пароль..."
                     {...register('password')}
                 />
-                <button type="submit" disabled={!!formError}>
-                    Войти
-                </button>
-                {errorMessage && <p>{errorMessage}</p>}
+                <Button type="submit" disabled={!isValid}>
+                    авторизоваться
+                </Button>
+                {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+
+                <LinkForAuth to="/register">
+                    {' '}
+                    или
+                    <br />
+                    зарегистрироваться
+                </LinkForAuth>
             </form>
         </div>
     );
@@ -81,4 +112,11 @@ export const Authorization = styled(AuthorizationContainer)`
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
+
+    & > form {
+        display: flex;
+        flex-direction: column;
+        width: 260px;
+    }
 `;

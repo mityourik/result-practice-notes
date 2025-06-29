@@ -1,19 +1,7 @@
 import styled from 'styled-components';
 import { Icon } from '../Icon/Icon';
 import { Link, useNavigate } from 'react-router-dom';
-
-const StyledLink = styled(Link)`
-    border: none;
-    background: none;
-    cursor: pointer;
-    display: flex;
-    font-weight: bold;
-    font-size: 0.7em;
-    text-transform: uppercase;
-    margin: 0 5px 0 0;
-    text-decoration: none;
-    color: #333;
-`;
+import { Button } from '../../../../components';
 
 const UserText = styled.p`
     font-weight: bold;
@@ -31,7 +19,7 @@ const RightAligned = styled.div`
     align-items: center;
 `;
 
-const StyledButton = styled.button`
+const StyledIcon = styled.button`
     border: none;
     background: none;
     cursor: pointer;
@@ -44,21 +32,23 @@ const ControlPanelContainer = ({ className }) => {
         <div className={className}>
             <RightAligned>
                 <UserText>Юзер</UserText>
-                <StyledLink to="/login">Войти</StyledLink>
-                <StyledLink to="/logout">
+                <Link to="/login">
+                    <Button>Войти</Button>
+                </Link>
+                <Link to="/logout">
                     <Icon size="18px" id="fa-sign-out" />
-                </StyledLink>
+                </Link>
             </RightAligned>
             <RightAligned>
-                <StyledButton onClick={() => navigate(-1)}>
+                <StyledIcon onClick={() => navigate(-1)}>
                     <Icon size="18px" id="fa-chevron-circle-left" />
-                </StyledButton>
-                <StyledLink to="/post">
+                </StyledIcon>
+                <Link to="/post">
                     <Icon size="18px" id="fa-file-text" />
-                </StyledLink>
-                <StyledLink to="/users">
+                </Link>
+                <Link to="/users">
                     <Icon size="18px" id="fa-users" />
-                </StyledLink>
+                </Link>
             </RightAligned>
         </div>
     );
