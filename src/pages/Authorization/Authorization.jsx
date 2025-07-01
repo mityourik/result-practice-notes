@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import * as yup from 'yup';
 import { server } from '../../bff';
-import { Button, Input } from '../../components';
+import { Button, H2, Input } from '../../components';
 
 const authFromSchema = yup.object().shape({
     login: yup
@@ -80,7 +80,7 @@ const AuthorizationContainer = ({ className }) => {
 
     return (
         <div className={className}>
-            <h2>Авторизация</h2>
+            <H2>Авторизация</H2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Input
                     type="text"
