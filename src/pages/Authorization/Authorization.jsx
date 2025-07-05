@@ -1,9 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import * as yup from 'yup';
+import { setUser } from '../../actions';
 import { server } from '../../bff';
 import { Button, H2, Input } from '../../components';
 
@@ -65,13 +67,15 @@ const AuthorizationContainer = ({ className }) => {
 
     const [serverError, setServerError] = useState(null);
 
+    const dispatch = useDispatch();
+
     const onSubmit = ({ login, password }) => {
         server.authorize(login, password).then(({ error, res }) => {
             if (error) {
                 setServerError(`Ошибка запроса: ${error}`);
-            } else {
-                console.log('Успешная авторизация:', res);
+                return;
             }
+            dispatch(setUser(res));
         });
     };
 

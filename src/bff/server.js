@@ -1,7 +1,7 @@
-import { createSession } from './create-session';
-import { createUser } from './create-user';
+import { addUser } from './add-user';
 import { AppError, ErrorTypes } from './error-types';
 import { getUser } from './get-user';
+import { sessions } from './sessions';
 
 /**
  * Преобразует ошибку в стандартный формат ответа
@@ -11,16 +11,6 @@ import { getUser } from './get-user';
 const formatError = (error) => ({
     error: error instanceof AppError ? error.message : 'Неизвестная ошибка',
     res: null,
-});
-
-/**
- * Форматирует успешный ответ с данными сессии
- * @param {Object} session - Объект сессии
- * @returns {Object} Отформатированный ответ
- */
-const formatSuccess = (session) => ({
-    error: null,
-    res: session,
 });
 
 export const server = {
@@ -49,24 +39,39 @@ export const server = {
                 );
             }
 
-            const session = createSession(user.role_id);
-            return formatSuccess(session);
+            const result = {
+                id: user.id,
+                login: user.login,
+                roleId: user.role_id,
+                session: sessions.create(user),
+            };
+            return { error: null, res: result };
         } catch (error) {
             return formatError(error);
         }
     },
-
     async register(regLogin, regPassword) {
         try {
-            if (!regLogin || !regPassword) {
-                throw new AppError(
-                    ErrorTypes.VALIDATION_ERROR,
-                    'Логин и пароль обязательны'
-                );
+            const user = await getUser(regLogin);
+
+            if (user) {
+                return {
+                    error: 'Пользователь с таким логином уже существует',
+                    res: null,
+                };
             }
 
-            const result = await createUser(regLogin, regPassword);
-            return result;
+            await addUser(regLogin, regPassword);
+
+            const newUser = await getUser(regLogin);
+
+            const result = {
+                id: newUser.id,
+                login: newUser.login,
+                roleId: newUser.role_id,
+                session: sessions.create(newUser),
+            };
+            return { error: null, res: result };
         } catch (error) {
             return formatError(error);
         }

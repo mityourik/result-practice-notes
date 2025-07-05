@@ -1,7 +1,6 @@
 import { API_CONFIG } from './config';
 import { AppError, ErrorTypes } from './error-types';
 
-// Получение всех пользователей с обработкой ошибок
 export const getUsers = async () => {
     try {
         const response = await fetch(
@@ -23,7 +22,6 @@ export const getUsers = async () => {
     }
 };
 
-// Получение пользователя по логину
 export const getUser = async (loginToFind) => {
     try {
         if (!loginToFind || typeof loginToFind !== 'string') {

@@ -55,7 +55,7 @@ const sendCreateUserRequest = async (userData) => {
     }
 };
 
-export const createUser = async (login, password) => {
+export const addUser = async (login, password) => {
     try {
         validateUserData(login, password);
 
