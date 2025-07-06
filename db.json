@@ -1,6 +1,6 @@
 {
   "users": [
-    { "id": "1", "login": "title", "password": "asd123", "registered_at": "2025-06-12", "role_id": "0" }
+    { "id": "1", "login": "title", "password": "asd123A", "registered_at": "2025-06-12", "role_id": "0" }
   ],
   "roles": [
     { "id": 0, "name": "admin" },

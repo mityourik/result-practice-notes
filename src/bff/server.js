@@ -14,6 +14,11 @@ const formatError = (error) => ({
 });
 
 export const server = {
+    async logout(session) {
+        sessions.remove(session);
+        return { error: null, res: 'Вы вышли из системы' };
+    },
+
     async authorize(authLogin, authPassword) {
         try {
             if (!authLogin || !authPassword) {

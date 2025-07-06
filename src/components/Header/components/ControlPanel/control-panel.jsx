@@ -1,7 +1,15 @@
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { ROLE } from '../../../../constants';
+import {
+    selectUserRole,
+    selectUserLogin,
+    selectUserSession,
+} from '../../../../selectors';
 import { Icon } from '../Icon/Icon';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '../../../../components';
+import { logout } from '../../../../actions';
 
 const UserText = styled.p`
     font-weight: bold;
@@ -27,14 +35,29 @@ const StyledIcon = styled.button`
 
 const ControlPanelContainer = ({ className }) => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const roleId = useSelector(selectUserRole);
+    const login = useSelector(selectUserLogin);
+    const session = useSelector(selectUserSession);
 
     return (
         <div className={className}>
             <RightAligned>
                 <UserText>Юзер</UserText>
-                <Link to="/login">
-                    <Button>Войти</Button>
-                </Link>
+                <Button>
+                    {roleId === ROLE.GUEST ? (
+                        <Link to="/login">Войти</Link>
+                    ) : (
+                        <>
+                            <div>{login}</div>
+                            <StyledIcon
+                                onClick={() => dispatch(logout(session))}
+                            >
+                                <Icon size="18px" id="fa-sign-out" />
+                            </StyledIcon>
+                        </>
+                    )}
+                </Button>
                 <Link to="/logout">
                     <Icon size="18px" id="fa-sign-out" />
                 </Link>
