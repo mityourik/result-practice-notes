@@ -1,13 +1,15 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useStore, useSelector } from 'react-redux';
+import { selectUserRole } from '../../selectors';
+import { Link, Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 import * as yup from 'yup';
 import { setUser } from '../../actions';
 import { server } from '../../bff';
 import { Button, H2, Input } from '../../components';
+import { ROLE } from '../../constants';
 
 const authFromSchema = yup.object().shape({
     login: yup
@@ -55,6 +57,7 @@ const AuthorizationContainer = ({ className }) => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors, isValid },
     } = useForm({
         defaultValues: {
@@ -69,6 +72,23 @@ const AuthorizationContainer = ({ className }) => {
 
     const dispatch = useDispatch();
 
+    const store = useStore();
+
+    const roleId = useSelector(selectUserRole);
+
+    useEffect(() => {
+        let currentWasLogout = store.getState().app.wasLogout;
+
+        return store.subscribe(() => {
+            let previousWasLogout = currentWasLogout;
+            currentWasLogout = store.getState().app.wasLogout;
+
+            if (previousWasLogout !== currentWasLogout) {
+                reset();
+            }
+        });
+    }, [store, reset]);
+
     const onSubmit = ({ login, password }) => {
         server.authorize(login, password).then(({ error, res }) => {
             if (error) {
@@ -82,6 +102,10 @@ const AuthorizationContainer = ({ className }) => {
 
     const formError = errors?.login?.message || errors?.password?.message;
     const errorMessage = serverError || formError;
+
+    if (roleId !== ROLE.GUEST) {
+        return <Navigate to="/" replace />;
+    }
 
     return (
         <div className={className}>
