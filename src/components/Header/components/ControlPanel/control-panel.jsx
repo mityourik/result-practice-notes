@@ -1,15 +1,15 @@
-import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { logout } from '../../../../actions';
+import { Button } from '../../../../components';
 import { ROLE } from '../../../../constants';
 import {
-    selectUserRole,
     selectUserLogin,
+    selectUserRole,
     selectUserSession,
 } from '../../../../selectors';
 import { Icon } from '../Icon/Icon';
-import { Link, useNavigate } from 'react-router-dom';
-import { Button } from '../../../../components';
-import { logout } from '../../../../actions';
 
 const UserText = styled.p`
     font-weight: bold;
@@ -23,14 +23,21 @@ const UserText = styled.p`
 const RightAligned = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 16px;
 `;
 
 const StyledIcon = styled.button`
     border: none;
     background: none;
     cursor: pointer;
+    padding: 0;
+`;
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: #333;
 `;
 
 const ControlPanelContainer = ({ className }) => {
@@ -43,24 +50,21 @@ const ControlPanelContainer = ({ className }) => {
     return (
         <div className={className}>
             <RightAligned>
-                <UserText>Юзер</UserText>
-                <Button>
-                    {roleId === ROLE.GUEST ? (
-                        <Link to="/login">Войти</Link>
-                    ) : (
-                        <>
-                            <div>{login}</div>
-                            <StyledIcon
-                                onClick={() => dispatch(logout(session))}
-                            >
-                                <Icon size="18px" id="fa-sign-out" />
-                            </StyledIcon>
-                        </>
-                    )}
-                </Button>
-                <Link to="/logout">
-                    <Icon size="18px" id="fa-sign-out" />
-                </Link>
+                {roleId === ROLE.GUEST ? (
+                    <Button>
+                        <StyledLink to="/login">Войти</StyledLink>
+                    </Button>
+                ) : (
+                    <>
+                        <UserText>{login}</UserText>
+                        <StyledIcon
+                            onClick={() => dispatch(logout(session))}
+                            title="Выйти"
+                        >
+                            <Icon size="18px" id="fa-sign-out" />
+                        </StyledIcon>
+                    </>
+                )}
             </RightAligned>
             <RightAligned>
                 <StyledIcon onClick={() => navigate(-1)}>
