@@ -3,15 +3,15 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useStore, useSelector } from 'react-redux';
 import { selectUserRole } from '../../selectors';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 import * as yup from 'yup';
 import { setUser } from '../../actions';
 import { server } from '../../bff';
-import { AuthFormError, Button, H2, Input } from '../../components';
+import { Button, H2, Input } from '../../components';
 import { ROLE } from '../../constants';
 
-const authFormSchema = yup.object().shape({
+const regFormSchema = yup.object().shape({
     login: yup
         .string()
         .min(3, 'Логин должен содержать минимум 3 символа')
@@ -30,21 +30,22 @@ const authFormSchema = yup.object().shape({
             /^(?=.*[A-Z])(?=.*[0-9]).{6,}$/,
             'Пароль должен содержать хотя бы одну заглавную букву и одну цифру'
         ),
+    passcheck: yup
+        .string()
+        .oneOf([yup.ref('password'), null], 'Пароли не совпадают')
+        .required('Подтверждение пароля обязательно'),
 });
 
-const LinkForAuth = styled(Link)`
-    text-decoration: none;
-    color: rgb(100, 100, 200);
-    font-size: 0.9em;
+const ErrorMessage = styled.div`
+    font-size: 0.8em;
+    margin-top: 10px;
     text-align: center;
-    margin: 15px 0 0 0;
-
-    &:hover {
-        color: rgb(50, 50, 150);
-    }
+    background-color: #fcadad;
+    border-radius: 2px;
+    padding: 4px;
 `;
 
-const AuthorizationContainer = ({ className }) => {
+const RegistrationContainer = ({ className }) => {
     const {
         register,
         handleSubmit,
@@ -54,8 +55,9 @@ const AuthorizationContainer = ({ className }) => {
         defaultValues: {
             login: '',
             password: '',
+            passcheck: '',
         },
-        resolver: yupResolver(authFormSchema),
+        resolver: yupResolver(regFormSchema),
         mode: 'onChange',
     });
 
@@ -81,7 +83,7 @@ const AuthorizationContainer = ({ className }) => {
     }, [store, reset]);
 
     const onSubmit = ({ login, password }) => {
-        server.authorize(login, password).then(({ error, res }) => {
+        server.register(login, password).then(({ error, res }) => {
             if (error) {
                 setServerError(`Ошибка запроса: ${error}`);
                 return;
@@ -91,7 +93,10 @@ const AuthorizationContainer = ({ className }) => {
         });
     };
 
-    const formError = errors?.login?.message || errors?.password?.message;
+    const formError =
+        errors?.login?.message ||
+        errors?.password?.message ||
+        errors?.passcheck?.message;
     const errorMessage = serverError || formError;
 
     if (roleId !== ROLE.GUEST) {
@@ -100,7 +105,7 @@ const AuthorizationContainer = ({ className }) => {
 
     return (
         <div className={className}>
-            <H2>Авторизация</H2>
+            <H2>Регистрация</H2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Input
                     type="text"
@@ -112,23 +117,21 @@ const AuthorizationContainer = ({ className }) => {
                     placeholder="Пароль..."
                     {...register('password')}
                 />
+                <Input
+                    type="password"
+                    placeholder="Проверка пароля..."
+                    {...register('passcheck')}
+                />
                 <Button type="submit" disabled={!isValid}>
-                    авторизоваться
-                </Button>
-                {errorMessage && <AuthFormError>{errorMessage}</AuthFormError>}
-
-                <LinkForAuth to="/register">
-                    {' '}
-                    или
-                    <br />
                     зарегистрироваться
-                </LinkForAuth>
+                </Button>
+                {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
             </form>
         </div>
     );
 };
 
-export const Authorization = styled(AuthorizationContainer)`
+export const Registration = styled(RegistrationContainer)`
     display: flex;
     flex-direction: column;
     align-items: center;

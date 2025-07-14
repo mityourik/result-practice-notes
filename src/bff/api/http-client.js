@@ -1,5 +1,4 @@
 import { API_CONFIG } from '../config';
-import { AppError, ErrorTypes } from '../error-types';
 
 /**
  * Базовый HTTP клиент для работы с API
@@ -27,8 +26,7 @@ export class HttpClient {
 
             if (!response.ok) {
                 const error = await response.json().catch(() => ({}));
-                throw new AppError(
-                    ErrorTypes.API_ERROR,
+                throw new Error(
                     error.message || `HTTP ошибка: ${response.status}`
                 );
             }
@@ -36,10 +34,7 @@ export class HttpClient {
             return await response.json();
         } catch (error) {
             if (error.name === 'AbortError') {
-                throw new AppError(
-                    ErrorTypes.TIMEOUT_ERROR,
-                    'Превышено время ожидания ответа от сервера'
-                );
+                throw new Error('Превышено время ожидания ответа от сервера');
             }
             throw error;
         }

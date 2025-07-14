@@ -1,15 +1,9 @@
 import { addUser } from './add-user';
-import { AppError, ErrorTypes } from './error-types';
 import { getUser } from './get-user';
 import { sessions } from './sessions';
 
-/**
- * Преобразует ошибку в стандартный формат ответа
- * @param {Error} error - Исходная ошибка
- * @returns {Object} Объект с форматированной ошибкой
- */
 const formatError = (error) => ({
-    error: error instanceof AppError ? error.message : 'Неизвестная ошибка',
+    error: error?.message || 'Неизвестная ошибка',
     res: null,
 });
 
@@ -20,28 +14,20 @@ export const server = {
     },
 
     async authorize(authLogin, authPassword) {
+        console.log('authorize called', authLogin, authPassword);
         try {
             if (!authLogin || !authPassword) {
-                throw new AppError(
-                    ErrorTypes.VALIDATION_ERROR,
-                    'Логин и пароль обязательны'
-                );
+                throw new Error('Логин и пароль обязательны');
             }
 
             const user = await getUser(authLogin);
 
             if (!user) {
-                throw new AppError(
-                    ErrorTypes.USER_NOT_FOUND,
-                    'Такого пользователя не существует'
-                );
+                throw new Error('Такого пользователя не существует');
             }
 
             if (authPassword !== user.password) {
-                throw new AppError(
-                    ErrorTypes.INVALID_PASSWORD,
-                    'Неверный пароль'
-                );
+                throw new Error('Неверный пароль');
             }
 
             const result = {
@@ -57,9 +43,8 @@ export const server = {
     },
     async register(regLogin, regPassword) {
         try {
-            const user = await getUser(regLogin);
-
-            if (user) {
+            const existingUser = await getUser(regLogin);
+            if (existingUser) {
                 return {
                     error: 'Пользователь с таким логином уже существует',
                     res: null,
