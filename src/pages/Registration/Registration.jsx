@@ -1,14 +1,15 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useStore, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectUserRole } from '../../selectors';
 import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 import * as yup from 'yup';
 import { setUser } from '../../actions';
 import { server } from '../../bff';
-import { Button, H2, Input } from '../../components';
+import { AuthFormError, Button, H2, Input } from '../../components';
+import { useResetForm } from '../../hooks';
 import { ROLE } from '../../constants';
 
 const regFormSchema = yup.object().shape({
@@ -36,15 +37,6 @@ const regFormSchema = yup.object().shape({
         .required('Подтверждение пароля обязательно'),
 });
 
-const ErrorMessage = styled.div`
-    font-size: 0.8em;
-    margin-top: 10px;
-    text-align: center;
-    background-color: #fcadad;
-    border-radius: 2px;
-    padding: 4px;
-`;
-
 const RegistrationContainer = ({ className }) => {
     const {
         register,
@@ -65,22 +57,9 @@ const RegistrationContainer = ({ className }) => {
 
     const dispatch = useDispatch();
 
-    const store = useStore();
-
     const roleId = useSelector(selectUserRole);
 
-    useEffect(() => {
-        let currentWasLogout = store.getState().app.wasLogout;
-
-        return store.subscribe(() => {
-            let previousWasLogout = currentWasLogout;
-            currentWasLogout = store.getState().app.wasLogout;
-
-            if (previousWasLogout !== currentWasLogout) {
-                reset();
-            }
-        });
-    }, [store, reset]);
+    useResetForm(reset);
 
     const onSubmit = ({ login, password }) => {
         server.register(login, password).then(({ error, res }) => {
@@ -125,7 +104,7 @@ const RegistrationContainer = ({ className }) => {
                 <Button type="submit" disabled={!isValid}>
                     зарегистрироваться
                 </Button>
-                {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+                {errorMessage && <AuthFormError>{errorMessage}</AuthFormError>}
             </form>
         </div>
     );
