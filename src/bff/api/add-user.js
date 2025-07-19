@@ -1,5 +1,5 @@
-import { API_CONFIG } from './config';
-import { generateDate } from './generate-date';
+import { API_CONFIG } from '../config';
+import { generateDate } from '../utils/generate-date';
 
 export const addUser = async (login, password) => {
     try {
