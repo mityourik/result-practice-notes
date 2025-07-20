@@ -31,7 +31,7 @@ const Div = styled.div`
     margin: 0 0 10px 0;
 `;
 
-const Content = styled.div`
+const Page = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
@@ -43,7 +43,7 @@ function Blog() {
             <GlobalStyle />
             <AppColumn>
                 <StyledHeader />
-                <Content>
+                <Page>
                     <Routes>
                         <Route path="/" element={<Div>Главная страница</Div>} />
                         <Route path="/login" element={<Authorization />} />
@@ -60,7 +60,7 @@ function Blog() {
                             }
                         />
                     </Routes>
-                </Content>
+                </Page>
                 <Footer />
             </AppColumn>
         </>

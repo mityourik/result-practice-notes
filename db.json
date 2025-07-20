@@ -5,20 +5,27 @@
       "login": "asdASD",
       "password": "123123A",
       "registered_at": "2025-06-12",
-      "role_id": "0"
+      "role_id": 0
     },
     {
       "id": "3aba",
       "login": "asd",
       "password": "asd123A",
       "registered_at": "1970-05-03 13:27",
-      "role_id": 2
+      "role_id": 0
     },
     {
       "id": "3634",
       "login": "asdasd",
       "password": "asd123A",
       "registered_at": "1970-03-18 08:35",
+      "role_id": 0
+    },
+    {
+      "id": "cbb0",
+      "login": "asd1",
+      "password": "asd123A",
+      "registered_at": "1970-03-03 23:49",
       "role_id": 2
     }
   ],
