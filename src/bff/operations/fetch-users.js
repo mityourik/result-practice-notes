@@ -16,7 +16,7 @@ export const fetchUsers = async (userSession) => {
 
         const users = await getUsers();
 
-        if (!Array.isArray(users)) {
+        if (!users) {
             return {
                 error: 'Ошибка получения списка пользователей',
                 res: [],
