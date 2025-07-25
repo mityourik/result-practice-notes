@@ -4,4 +4,5 @@ export const ACTION_TYPE = {
     SET_POSTS: 'SET_POSTS',
     SET_USERS: 'SET_USERS',
     LOGOUT: 'LOGOUT',
+    SET_POST_DATA: 'SET_POST_DATA',
 };

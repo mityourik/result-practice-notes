@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Footer, StyledHeader } from './components';
-import { Authorization, Registration, Users } from './pages';
+import { Authorization, Registration, Users, Post } from './pages';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -49,7 +49,7 @@ function Blog() {
                         <Route path="/login" element={<Authorization />} />
                         <Route path="/register" element={<Registration />} />
                         <Route path="/users" element={<Users />} />
-                        <Route path="/post/:postId" element={<Div>Пост</Div>} />
+                        <Route path="/post/:id" element={<Post />} />
                         <Route path="/post" element={<Div>Пост</Div>} />
                         <Route
                             path="*"
