@@ -4,7 +4,7 @@ import { Icon } from '../../../../components/Header/components/Icon/Icon';
 
 const PostContentContainer = ({
     className,
-    post: { id, title, imageUrl, content, publishedAt },
+    post: { title, imageUrl, content, publishedAt },
 }) => {
     return (
         <div className={className}>
@@ -64,5 +64,9 @@ export const PostContent = styled(PostContentContainer)`
     & .buttons {
         display: flex;
         margin-left: auto;
+    }
+
+    & .post-text {
+        font-size: 0.9em;
     }
 `;
