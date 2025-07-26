@@ -25,4 +25,6 @@ const PostContainer = ({ className }) => {
     );
 };
 
-export const Post = styled(PostContainer)``;
+export const Post = styled(PostContainer)`
+    padding: 0 80px 0 80px;
+`;

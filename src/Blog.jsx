@@ -18,7 +18,7 @@ const AppColumn = styled.div`
     height: 100%;
     background-color: #f0f0f0;
     margin: 0 auto;
-    padding-top: 100px;
+    padding-top: 80px;
     max-width: 900px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
     border-radius: 10px;
