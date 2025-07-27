@@ -1,4 +1,4 @@
-import { getPost } from '../api';
+import { getComments, getPost } from '../api';
 import { formatError } from '../utils';
 
 export const fetchPost = async (postId) => {
@@ -12,7 +12,15 @@ export const fetchPost = async (postId) => {
             };
         }
 
-        return { error: null, res: post };
+        let comments = [];
+        try {
+            comments = await getComments(postId);
+        } catch (commentError) {
+            console.warn('Не удалось загрузить комментарии:', commentError);
+            comments = [];
+        }
+
+        return { error: null, res: { ...post, comments } };
     } catch (error) {
         return formatError(error);
     }
