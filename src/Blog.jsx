@@ -1,7 +1,10 @@
+import { useLayoutEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Footer, StyledHeader } from './components';
 import { Authorization, Registration, Users, Post } from './pages';
+import { setUser } from './actions';
+import { useDispatch } from 'react-redux';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -15,7 +18,6 @@ const AppColumn = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
     background-color: #f0f0f0;
     margin: 0 auto;
     padding-top: 80px;
@@ -38,6 +40,24 @@ const Page = styled.div`
 `;
 
 function Blog() {
+    const dispatch = useDispatch();
+    useLayoutEffect(() => {
+        const currentUserDataJSON = sessionStorage.getItem('userData');
+
+        if (!currentUserDataJSON) {
+            return;
+        }
+
+        const currentUserData = JSON.parse(currentUserDataJSON);
+
+        dispatch(
+            setUser({
+                ...currentUserData,
+                roleId: Number(currentUserData.roleId),
+            })
+        );
+    }, [dispatch]);
+
     return (
         <>
             <GlobalStyle />

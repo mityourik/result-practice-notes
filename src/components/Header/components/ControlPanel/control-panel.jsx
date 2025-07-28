@@ -47,6 +47,11 @@ const ControlPanelContainer = ({ className }) => {
     const login = useSelector(selectUserLogin);
     const session = useSelector(selectUserSession);
 
+    const onLogout = () => {
+        dispatch(logout(session));
+        sessionStorage.removeItem('userData');
+    };
+
     return (
         <div className={className}>
             <RightAligned>
@@ -61,7 +66,11 @@ const ControlPanelContainer = ({ className }) => {
                             onClick={() => dispatch(logout(session))}
                             title="Выйти"
                         >
-                            <Icon size="18px" id="fa-sign-out" />
+                            <Icon
+                                size="18px"
+                                id="fa-sign-out"
+                                onClick={onLogout}
+                            />
                         </StyledIcon>
                     </>
                 )}

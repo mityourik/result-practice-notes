@@ -8,6 +8,7 @@ export const API_CONFIG = {
         AUTH: '/auth',
         COMMENTS: '/comments',
         POSTS: '/posts',
+        SESSIONS: '/sessions',
     },
     REQUEST_TIMEOUT: 5000,
     DEFAULT_HEADERS: {

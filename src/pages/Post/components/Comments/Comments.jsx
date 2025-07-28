@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import styled from 'styled-components';
-import { Comment } from './components';
-import { Icon } from '../../../../components/Header/components/Icon/Icon';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserId } from '../../../../selectors';
-import { useServerRequest } from '../../../../hooks';
+import styled from 'styled-components';
 import { addCommentAsync } from '../../../../actions';
+import { Icon } from '../../../../components/Header/components/Icon/Icon';
+import { useServerRequest } from '../../../../hooks';
+import { selectUserId } from '../../../../selectors';
+import { Comment } from './components';
 
 const CommentsContainer = ({ className, comments, postId }) => {
     const [newComment, setNewComment] = useState('');
@@ -41,6 +41,7 @@ const CommentsContainer = ({ className, comments, postId }) => {
                     <Comment
                         key={id}
                         id={id}
+                        postId={postId}
                         author={author}
                         content={content}
                         publishedAt={publishedAt}
@@ -52,7 +53,6 @@ const CommentsContainer = ({ className, comments, postId }) => {
 };
 
 export const Comments = styled(CommentsContainer)`
-    display: flex;
     width: 580px;
     margin: 20px auto;
 
@@ -66,4 +66,12 @@ export const Comments = styled(CommentsContainer)`
         height: 120px;
         padding: 10px;
         resize: none;
+    }
+
+    & .comments {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
 `;

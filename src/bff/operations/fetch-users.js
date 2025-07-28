@@ -3,11 +3,13 @@ import { ROLE } from '../constants';
 import { sessions } from '../sessions';
 import { formatError } from '../utils';
 
-export const fetchUsers = async (userSession) => {
+export const fetchUsers = async (hash) => {
     try {
         const accessRoles = [ROLE.ADMIN];
 
-        if (!sessions.access(userSession, accessRoles)) {
+        const access = await sessions.access(hash, accessRoles);
+
+        if (!access) {
             return {
                 error: 'Доступ к ролям запрещен для данного пользователя',
                 res: null,

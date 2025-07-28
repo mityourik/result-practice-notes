@@ -6,6 +6,13 @@
       "password": "123123A",
       "registered_at": "2025-06-12",
       "role_id": 0
+    },
+    {
+      "id": "405d",
+      "login": "fgh",
+      "password": "123123A",
+      "registered_at": "1970-02-03 06:27",
+      "role_id": 2
     }
   ],
   "roles": [
@@ -98,30 +105,29 @@
       "published_at": "2025-06-12"
     }
   ],
-  "comments": [
+  "comments": [],
+  "sessions": [
     {
-      "id": "1",
-      "post_id": "1",
-      "author": "Автор комментария 1",
-      "content": "Отличный пост! Очень интересно написано.",
-      "published_at": "2025-06-13"
+      "id": "7718",
+      "hash": "0.27253498213354854229351076355669647455215454101563",
+      "user": {
+        "id": "1asd",
+        "login": "asdASD",
+        "password": "123123A",
+        "registeredAt": "2025-06-12",
+        "roleId": 0
+      }
     },
     {
-      "id": "2",
-      "post_id": "1",
-      "author": "Читатель",
-      "content": "Согласен с автором, тема очень актуальная.",
-      "published_at": "2025-06-14"
-    },
-    {
-      "id": "3",
-      "post_id": "2",
-      "author": "Критик",
-      "content": "Хорошие мысли, но можно было бы развить тему глубже.",
-      "published_at": "2025-06-15"
+      "id": "7ce3",
+      "hash": "0.51252461025890083679001918426365591585636138916016",
+      "user": {
+        "id": "1asd",
+        "login": "asdASD",
+        "password": "123123A",
+        "registeredAt": "2025-06-12",
+        "roleId": 0
+      }
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
