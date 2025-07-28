@@ -1,3 +1,4 @@
+import { CLOSE_MODAL } from './close-modal';
 import { setPostData } from './set-post-data';
 
 export const removeCommentAsync =
@@ -7,6 +8,7 @@ export const removeCommentAsync =
                 console.error('Ошибка удаления комментария:', postData.error);
             } else {
                 dispatch(setPostData(postData.res));
+                dispatch(CLOSE_MODAL);
             }
         });
     };

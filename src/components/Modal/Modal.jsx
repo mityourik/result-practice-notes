@@ -7,12 +7,25 @@ import {
     selectModalOnCancel,
     selectModalIsOpen,
 } from '../../selectors';
+import { useEffect } from 'react';
 
 const ModalContainer = ({ className }) => {
     const text = useSelector(selectModalText);
     const onConfirm = useSelector(selectModalOnConfirm);
     const onCancel = useSelector(selectModalOnCancel);
     const isOpen = useSelector(selectModalIsOpen);
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
 
     if (!isOpen) {
         return null;
@@ -22,7 +35,7 @@ const ModalContainer = ({ className }) => {
         <div className={className}>
             <div className="overlay"></div>
             <div className="box">
-                <h3 className="title">remove comment?{text}</h3>
+                <h3 className="title">{text}</h3>
                 <div className="buttons">
                     <Button width="120px" onClick={onConfirm}>
                         Да

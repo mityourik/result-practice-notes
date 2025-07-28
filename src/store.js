@@ -1,11 +1,12 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { thunk } from 'redux-thunk';
 import {
     appReducer,
-    userReducer,
-    usersReducer,
+    modalReducer,
     postReducer,
     postsReducer,
+    userReducer,
+    usersReducer,
 } from './reducers';
 
 const reducer = combineReducers({
@@ -14,6 +15,7 @@ const reducer = combineReducers({
     users: usersReducer,
     post: postReducer,
     posts: postsReducer,
+    modal: modalReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

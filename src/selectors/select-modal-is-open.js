@@ -1,3 +1,3 @@
 export const selectModalIsOpen = (state) => {
-    return state.app.modal.isOpen;
+    return state.modal.isOpen;
 };

@@ -107,25 +107,18 @@
   ],
   "comments": [
     {
-      "id": "c7c8",
-      "author_id": "1asd",
-      "post_id": "1",
-      "published_at": "1970-05-02 18:49",
-      "content": "asdasd"
-    },
-    {
-      "id": "21e9",
-      "author_id": "1asd",
-      "post_id": "1",
-      "published_at": "1970-03-14 10:11",
-      "content": "asdasdad"
-    },
-    {
       "id": "c115",
       "author_id": "1asd",
       "post_id": "1",
       "published_at": "1970-02-16 03:10",
       "content": "asdasdasd"
+    },
+    {
+      "id": "7659",
+      "author_id": "1asd",
+      "post_id": "1",
+      "published_at": "1970-04-25 13:51",
+      "content": "sfsdfsdfsf"
     }
   ],
   "sessions": [

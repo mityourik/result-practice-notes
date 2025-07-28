@@ -1,3 +1,3 @@
 export const selectModalText = (state) => {
-    return state.app.modal.text;
+    return state.modal.text;
 };

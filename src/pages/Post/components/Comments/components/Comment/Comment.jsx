@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { removeCommentAsync } from '../../../../../../actions';
+import {
+    CLOSE_MODAL,
+    openModal,
+    removeCommentAsync,
+} from '../../../../../../actions';
 import { Icon } from '../../../../../../components/Header/components/Icon/Icon';
 import { ROLE } from '../../../../../../constants';
 import { useServerRequest } from '../../../../../../hooks';
@@ -19,7 +23,14 @@ const CommentContainer = ({
     const requestServer = useServerRequest();
 
     const onCommentRemove = () => {
-        dispatch(removeCommentAsync(requestServer, postId, id));
+        dispatch(
+            openModal({
+                text: 'Вы уверены, что хотите удалить этот комментарий?',
+                onConfirm: () =>
+                    dispatch(removeCommentAsync(requestServer, postId, id)),
+                onCancel: () => dispatch(CLOSE_MODAL),
+            })
+        );
     };
 
     const canDelete = userRole === ROLE.ADMIN || userRole === ROLE.MODERATOR;
