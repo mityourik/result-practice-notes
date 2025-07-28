@@ -20,7 +20,7 @@ const Header = styled.header`
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000;
+    z-index: 10;
     background: #f0f0f0;
     border-radius: 2px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);

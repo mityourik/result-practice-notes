@@ -1,7 +1,7 @@
 import { useLayoutEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Footer, StyledHeader } from './components';
+import { Footer, Modal, StyledHeader } from './components';
 import { Authorization, Registration, Users, Post } from './pages';
 import { setUser } from './actions';
 import { useDispatch } from 'react-redux';
@@ -82,6 +82,7 @@ function Blog() {
                     </Routes>
                 </Page>
                 <Footer />
+                <Modal />
             </AppColumn>
         </>
     );
