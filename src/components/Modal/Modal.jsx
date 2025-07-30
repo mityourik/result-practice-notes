@@ -77,7 +77,7 @@ export const Modal = styled(ModalContainer)`
         width: 400px;
         margin: 100px auto;
         z-index: 30;
-        background: #fff;
+        background: #cdd0ca;
         padding: 20px;
         border-radius: 2px;
         display: flex;

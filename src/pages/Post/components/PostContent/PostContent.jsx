@@ -1,11 +1,15 @@
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { H2 } from '../../../../components';
 import { Icon } from '../../../../components/Header/components/Icon/Icon';
+import { SpecialPanel } from '../SpecialPanel/SpecialPanel';
 
 const PostContentContainer = ({
     className,
-    post: { title, imageUrl, content, publishedAt },
+    post: { id, title, imageUrl, content, publishedAt },
 }) => {
+    const navigate = useNavigate();
+
     return (
         <div className={className}>
             <img
@@ -14,31 +18,18 @@ const PostContentContainer = ({
                 alt={title}
             />
             <H2>{title}</H2>
-            <div className="special-panel">
-                <div className="published-at">
+            <SpecialPanel
+                publishedAt={publishedAt}
+                margin="10px 0 10px 0"
+                editButton={
                     <Icon
                         size="1em"
-                        margin="0 8px 0 0"
-                        id="fa-floppy-o"
-                        onClick={() => {}}
-                    ></Icon>
-                    {publishedAt}
-                    <div className="buttons">
-                        <Icon
-                            size="1em"
-                            margin="0 8px 0 0"
-                            id="fa-pencil-square-o"
-                            onClick={() => {}}
-                        ></Icon>
-                        <Icon
-                            size="1em"
-                            margin="0 8px 0 0"
-                            id="fa-trash-o"
-                            onClick={() => {}}
-                        ></Icon>
-                    </div>
-                </div>
-            </div>
+                        margin="0 8.1px 0 0"
+                        id="fa-pencil-square-o"
+                        onClick={() => navigate(`/post/${id}/edit`)}
+                    />
+                }
+            />
             <div className="post-text">{content}</div>
         </div>
     );
@@ -48,22 +39,6 @@ export const PostContent = styled(PostContentContainer)`
     & .post-image {
         float: left;
         margin: 0 27px 0px 0;
-    }
-
-    & .special-panel {
-        color: #999;
-        font-size: 0.9em;
-        margin-bottom: 10px;
-    }
-
-    & .published-at {
-        display: flex;
-        align-items: center;
-    }
-
-    & .buttons {
-        display: flex;
-        margin-left: auto;
     }
 
     & .post-text {

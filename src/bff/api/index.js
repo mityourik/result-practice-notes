@@ -12,3 +12,4 @@ export * from './get-user';
 export * from './get-users';
 export * from './http-client';
 export * from './set-user-role';
+export * from './udate-post';
