@@ -51,6 +51,7 @@ const PostFormContainer = ({
                 ref={titleRef}
             />
             <SpecialPanel
+                id={id}
                 publishedAt={publishedAt}
                 margin="10px 0 10px 0"
                 editButton={

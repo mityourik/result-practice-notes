@@ -19,6 +19,7 @@ const PostContentContainer = ({
             />
             <H2>{title}</H2>
             <SpecialPanel
+                id={id}
                 publishedAt={publishedAt}
                 margin="10px 0 10px 0"
                 editButton={
