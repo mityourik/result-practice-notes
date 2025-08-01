@@ -1,10 +1,10 @@
 import { useLayoutEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Footer, Modal, StyledHeader } from './components';
-import { Authorization, Registration, Users, Post } from './pages';
 import { setUser } from './actions';
-import { useDispatch } from 'react-redux';
+import { Footer, Modal, StyledHeader } from './components';
+import { Authorization, Post, Registration, Users } from './pages';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -70,6 +70,7 @@ function Blog() {
                         <Route path="/register" element={<Registration />} />
                         <Route path="/users" element={<Users />} />
                         <Route path="/post/:id" element={<Post />} />
+                        <Route path="/post" element={<Post />} />
                         <Route path="/post/:id/edit" element={<Post />} />
                         <Route path="/post" element={<Div>Пост</Div>} />
                         <Route

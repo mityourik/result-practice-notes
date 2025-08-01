@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 import { H2 } from '../../../../components';
 import { Icon } from '../../../../components/Header/components/Icon/Icon';
 import { SpecialPanel } from '../SpecialPanel/SpecialPanel';
@@ -21,9 +21,11 @@ const PostContentContainer = ({
             <SpecialPanel
                 id={id}
                 publishedAt={publishedAt}
+                isNewPost={false}
                 margin="10px 0 10px 0"
                 editButton={
                     <Icon
+                        isButton={true}
                         size="1em"
                         margin="0 8.1px 0 0"
                         id="fa-pencil-square-o"

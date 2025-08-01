@@ -1,13 +1,13 @@
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { savePostAsync } from '../../../../actions';
 import styled from 'styled-components';
+import { createPostAsync, savePostAsync } from '../../../../actions';
 import { Input } from '../../../../components';
 import { Icon } from '../../../../components/Header/components/Icon/Icon';
+import { useServerRequest } from '../../../../hooks';
 import { SpecialPanel } from '../SpecialPanel/SpecialPanel';
 import { sanitizeContent } from './utils';
-import { useServerRequest } from '../../../../hooks';
 
 const PostFormContainer = ({
     className,
@@ -28,14 +28,28 @@ const PostFormContainer = ({
         const newTitle = titleRef.current.value;
         const newContent = sanitizeContent(contentRef.current.innerHTML);
 
-        dispatch(
-            savePostAsync(requestServer, {
-                id,
-                imageUrl: newImageUrl,
-                title: newTitle,
-                content: newContent,
-            })
-        ).then(() => navigate(`/post/${id}`));
+        const postData = {
+            imageUrl: newImageUrl,
+            title: newTitle,
+            content: newContent,
+        };
+
+        if (id) {
+            dispatch(
+                savePostAsync(requestServer, {
+                    id,
+                    ...postData,
+                })
+            ).then(() => navigate(`/post/${id}`));
+        } else {
+            dispatch(createPostAsync(requestServer, postData)).then(
+                (response) => {
+                    if (!response.error && response.res) {
+                        navigate(`/post/${response.res.id}`);
+                    }
+                }
+            );
+        }
     };
 
     return (
@@ -52,12 +66,13 @@ const PostFormContainer = ({
             />
             <SpecialPanel
                 id={id}
-                publishedAt={publishedAt}
+                publishedAt={publishedAt || 'Новый пост'}
+                isNewPost={!id}
                 margin="10px 0 10px 0"
                 editButton={
                     <Icon
+                        isButton={true}
                         size="1em"
-                        margin="0 8px 0 0"
                         id="fa-floppy-o"
                         onClick={onSave}
                     />
@@ -84,6 +99,8 @@ export const PostForm = styled(PostFormContainer)`
     }
 
     & .post-text {
+        min-height: 100px;
+        border: 1px solid #000;
         font-size: 0.9em;
         white-space: pre-line;
     }

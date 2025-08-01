@@ -67,6 +67,7 @@ const ControlPanelContainer = ({ className }) => {
                             title="Выйти"
                         >
                             <Icon
+                                isButton={true}
                                 size="18px"
                                 id="fa-sign-out"
                                 onClick={onLogout}
@@ -77,13 +78,17 @@ const ControlPanelContainer = ({ className }) => {
             </RightAligned>
             <RightAligned>
                 <StyledIcon onClick={() => navigate(-1)}>
-                    <Icon size="18px" id="fa-chevron-circle-left" />
+                    <Icon
+                        size="18px"
+                        id="fa-chevron-circle-left"
+                        isButton={true}
+                    />
                 </StyledIcon>
                 <Link to="/post">
-                    <Icon size="18px" id="fa-file-text" />
+                    <Icon size="18px" id="fa-file-text" isButton={true} />
                 </Link>
                 <Link to="/users">
-                    <Icon size="18px" id="fa-users" />
+                    <Icon size="18px" id="fa-users" isButton={true} />
                 </Link>
             </RightAligned>
         </div>

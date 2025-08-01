@@ -10,6 +10,7 @@ import { Comments, PostContent, PostForm } from './components';
 const PostContainer = ({ className }) => {
     const dispatch = useDispatch();
     const params = useParams();
+    const isCreating = useMatch('/post');
     const isEditing = useMatch('/post/:id/edit');
     const requestServer = useServerRequest();
     const post = useSelector(selectPost);
@@ -19,13 +20,22 @@ const PostContainer = ({ className }) => {
     }, [dispatch]);
 
     useEffect(() => {
+        if (isCreating) {
+            return;
+        }
         dispatch(loadPostAsync(requestServer, params.id));
-    }, [dispatch, requestServer, params.id]);
+    }, [dispatch, requestServer, params.id, isCreating]);
 
     return (
         <div className={className}>
-            {isEditing ? <PostForm post={post} /> : <PostContent post={post} />}
-            <Comments comments={post.comments} postId={post.id} />
+            {isEditing || isCreating ? (
+                <PostForm post={post} />
+            ) : (
+                <>
+                    <PostContent post={post} />
+                    <Comments comments={post.comments} postId={post.id} />
+                </>
+            )}
         </div>
     );
 };

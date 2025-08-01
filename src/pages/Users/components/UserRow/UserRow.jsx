@@ -43,6 +43,7 @@ const UserRowContainer = ({
                     ))}
                 </select>
                 <Icon
+                    isButton={true}
                     size="1.5em"
                     id="fa-floppy-o"
                     onClick={() => onRoleSave(id, selectedRoleId)}
@@ -50,6 +51,7 @@ const UserRowContainer = ({
                 ></Icon>
             </TableRow>
             <Icon
+                isButton={true}
                 size="1.5em"
                 id="fa-trash-o"
                 margin="0 0 3px 6px"

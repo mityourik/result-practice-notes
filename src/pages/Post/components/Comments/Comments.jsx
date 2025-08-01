@@ -27,6 +27,7 @@ const CommentsContainer = ({ className, comments, postId }) => {
                     onChange={({ target: { value } }) => setNewComment(value)}
                 ></textarea>
                 <Icon
+                    isButton={true}
                     size="1em"
                     margin="0 8px 0 8px"
                     id="fa-paper-plane-o"

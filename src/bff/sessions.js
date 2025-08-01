@@ -1,4 +1,4 @@
-import { getSession, addSession, deleteSession } from './api';
+import { addSession, deleteSession, getSession } from './api';
 
 export const sessions = {
     list: {},
@@ -22,6 +22,10 @@ export const sessions = {
     async access(hash, accessRoles) {
         const dbSession = await getSession(hash);
 
-        return !!dbSession.user && accessRoles.includes(dbSession.user.roleId);
+        return (
+            !!dbSession &&
+            !!dbSession.user &&
+            accessRoles.includes(dbSession.user.roleId)
+        );
     },
 };

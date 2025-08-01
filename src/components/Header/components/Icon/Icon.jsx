@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
-const IconContainer = ({ className, id, onClick, ...rest }) => (
-    <div className={className} onClick={onClick} {...rest}>
-        <i className={`fa ${id}`} aria-hidden="true"></i>
-    </div>
-);
+const IconContainer = ({ className, id, isButton, ...rest }) => {
+    // isButton используется только для стилизации в styled-component
+    const { isButton: _, ...domProps } = { isButton, ...rest };
+    return (
+        <div className={className} {...domProps}>
+            <i className={`fa ${id}`} aria-hidden="true"></i>
+        </div>
+    );
+};
 
 export const Icon = styled(IconContainer)`
     font-size: ${({ size }) => size || '2em'};
@@ -13,6 +17,6 @@ export const Icon = styled(IconContainer)`
     color: ${({ disabled }) => (disabled ? '#ccc' : '#000')};
 
     &:hover {
-        cursor: ${({ onClick }) => (onClick ? 'pointer' : 'default')};
+        cursor: ${({ isButton }) => (isButton ? 'pointer' : 'default')};
     }
 `;

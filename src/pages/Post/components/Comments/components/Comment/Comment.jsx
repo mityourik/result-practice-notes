@@ -54,7 +54,6 @@ const CommentContainer = ({
                                 size="1em"
                                 margin="0 8px 0 0"
                                 id="fa-calendar-o"
-                                onClick={() => {}}
                             ></Icon>
                             Дата публикации: {publishedAt}
                         </div>
@@ -67,6 +66,7 @@ const CommentContainer = ({
             {canDelete && (
                 <div className="button-delete-column">
                     <Icon
+                        isButton={true}
                         size="1em"
                         margin="0 0 0 8px"
                         id="fa-trash-o"

@@ -1,11 +1,17 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Icon } from '../../../../components/Header/components/Icon/Icon';
 import { CLOSE_MODAL, openModal, removePostAsync } from '../../../../actions';
+import { Icon } from '../../../../components/Header/components/Icon/Icon';
 import { useServerRequest } from '../../../../hooks';
 
-const SpecialPanelContainer = ({ id, className, publishedAt, editButton }) => {
+const SpecialPanelContainer = ({
+    id,
+    className,
+    publishedAt,
+    editButton,
+    isNewPost,
+}) => {
     const dispatch = useDispatch();
     const requestServer = useServerRequest();
     const navigate = useNavigate();
@@ -26,16 +32,21 @@ const SpecialPanelContainer = ({ id, className, publishedAt, editButton }) => {
     return (
         <div className={className}>
             <div className="published-at">
-                <Icon size="0.8em" margin="0 8px 0 0" id="fa-calendar-o"></Icon>
+                {publishedAt && !isNewPost && (
+                    <Icon size="0.8em" margin="0 8px 0 0" id="fa-calendar-o" />
+                )}
                 {publishedAt}
                 <div className="buttons">
                     {editButton}
-                    <Icon
-                        size="1em"
-                        margin="0 8px 0 0"
-                        id="fa-trash-o"
-                        onClick={onPostRemove}
-                    ></Icon>
+                    {publishedAt && !isNewPost && (
+                        <Icon
+                            isButton={true}
+                            size="1em"
+                            margin="0 8px 0 0"
+                            id="fa-trash-o"
+                            onClick={onPostRemove}
+                        />
+                    )}
                 </div>
             </div>
         </div>
