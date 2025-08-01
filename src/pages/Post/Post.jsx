@@ -7,6 +7,15 @@ import { useServerRequest } from '../../hooks';
 import { selectPost } from '../../selectors';
 import { Comments, PostContent, PostForm } from './components';
 
+const emptyPost = {
+    id: '',
+    title: '',
+    imageUrl: '',
+    content: '',
+    publishedAt: '',
+    comments: [],
+};
+
 const PostContainer = ({ className }) => {
     const dispatch = useDispatch();
     const params = useParams();
@@ -16,8 +25,10 @@ const PostContainer = ({ className }) => {
     const post = useSelector(selectPost);
 
     useLayoutEffect(() => {
-        dispatch(RESET_POST_DATA);
-    }, [dispatch]);
+        if (!isCreating) {
+            dispatch(RESET_POST_DATA);
+        }
+    }, [dispatch, isCreating]);
 
     useEffect(() => {
         if (isCreating) {
@@ -29,7 +40,7 @@ const PostContainer = ({ className }) => {
     return (
         <div className={className}>
             {isEditing || isCreating ? (
-                <PostForm post={post} />
+                <PostForm post={isCreating ? emptyPost : post} />
             ) : (
                 <>
                     <PostContent post={post} />

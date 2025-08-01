@@ -1,6 +1,6 @@
 import { ACTION_TYPE } from '../actions';
 
-const initialPostState = {
+export const initialPostState = {
     id: '',
     title: '',
     imageUrl: '',
