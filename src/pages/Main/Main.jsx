@@ -16,16 +16,30 @@ const MainContainer = ({ className }) => {
 
     return (
         <div className={className}>
-            {posts.map(({ id, title, publishedAt, commentsCount }) => (
-                <PostCard
-                    key={id}
-                    title={title}
-                    publishedAt={publishedAt}
-                    commentsCount={commentsCount}
-                />
-            ))}
+            <div className="post-list">
+                {posts.map(
+                    ({ id, title, publishedAt, commentsCount, imageUrl }) => (
+                        <PostCard
+                            id={id}
+                            imageUrl={imageUrl}
+                            key={id}
+                            title={title}
+                            publishedAt={publishedAt}
+                            commentsCount={commentsCount}
+                        />
+                    )
+                )}
+            </div>
         </div>
     );
 };
 
-export const Main = styled(MainContainer)``;
+export const Main = styled(MainContainer)`
+    & .post-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px;
+    }
+`;

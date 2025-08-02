@@ -37,6 +37,7 @@ const Page = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 30px;
 `;
 
 function Blog() {
@@ -65,14 +66,13 @@ function Blog() {
                 <StyledHeader />
                 <Page>
                     <Routes>
-                        <Route path="/" element={<Div>Главная страница</Div>} />
+                        <Route path="/" element={<Main />} />
                         <Route path="/login" element={<Authorization />} />
                         <Route path="/register" element={<Registration />} />
                         <Route path="/users" element={<Users />} />
                         <Route path="/post/:id" element={<Post />} />
                         <Route path="/post" element={<Post />} />
                         <Route path="/post/:id/edit" element={<Post />} />
-                        <Route path="/posts" element={<Main />} />
                         <Route
                             path="*"
                             element={

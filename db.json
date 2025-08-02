@@ -36,59 +36,115 @@
   "posts": [
     {
       "id": "1",
-      "title": " город просыпается под шум......",
-      "image_url": "https://fastly.picsum.photos/id/553/280/150.jpg?hmac=oHL68LAZPJPg8ds9TOsBXWkKHH4QYYqOu641bFJoJdI",
+      "title": " город просыпается...",
+      "image_url": "https://fastly.picsum.photos/id/555/300/200.jpg?hmac=KF8Or7Ajw8qpcSUrI1muAtde5As0Kq21LIm4wjoKcfk",
       "content": "Каждое утро город просыпается под шум машин, лай собак и первые лучи солнца, пробивающиеся сквозь плотные шторы. Люди спешат на работу, уткнувшись в телефоны, ловя последние новости или отвечая на сообщения. Мир кажется предсказуемым, но в этой рутине всегда есть место неожиданностям — случайной встрече, улыбке прохожего, новому вкусу кофе в привычной кофейне. Тем временем за пределами мегаполиса лес живёт по своим законам. Здесь всё подчинено ритму природы: птицы поют по расписанию, деревья шелестят от малейшего ветерка, а лисы крадутся по тропам в поисках добычи. В этом спокойствии есть особая сила — будто сам воздух напоён тишиной и вниманием к деталям. Один день здесь может запомниться больше, чем неделя в шуме и суете города. А где-то между этими двумя мирами человек ищет баланс. Мы хотим скорости и стабильности, уединения и общения, свободы и принадлежности. И в этом поиске — в самом процессе — рождается наша подлинная жизнь: не в достижениях, а в том, как мы чувствуем, размышляем и выбираем путь каждый день.",
       "published_at": "2025-06-12"
     },
     {
       "id": "2",
-      "title": "a comment about post 2212",
-      "image_url": "https://fastly.picsum.photos/id/362/280/150.jpg?hmac=YadFgZOEeKSU38aDeymdEmjEzRF1i2hFARf4lnsz6GI",
-      "content": "11111 Иногда самые важные перемены происходят незаметно — не в виде громких решений, а в лёгком смещении взгляда. Ты вдруг начинаешь по-другому слышать тишину, замечать оттенки в голосе друга, понимать, что слова — не всегда главное. Такое внутреннее движение даёт больше свободы, чем любые внешние перемены, и именно оно определяет, кем ты станешь через год или десять. В мире, полном шума и поверхностных стимулов, способность оставаться внимательным — редкий дар. Она требует усилий, но открывает доступ к глубоким переживаниям: радости без причины, тонкой грусти, благодарности за простое. Такие состояния не купить, не выпросить и не ускорить. Их можно только вырастить внутри себя, если не бояться тишины и собственной уязвимости. И всё же мы часто убегаем — от себя, от времени, от правды. Но в какой-то момент понимаем: всё, что нужно, уже рядом. Оно не громкое, не блестящее, не драматичное. Это просто спокойствие, когда ты сидишь один и тебе достаточно.",
+      "title": "Важные перемены в жизни",
+      "image_url": "https://fastly.picsum.photos/id/302/300/200.jpg?hmac=3SQ4PleTeKA1euVTPtYmzIzEFRASNXM2qjiZlEgcchg",
+      "content": "Иногда самые важные перемены происходят незаметно — не в виде громких решений, а в лёгком смещении взгляда. Ты вдруг начинаешь по-другому слышать тишину, замечать оттенки в голосе друга, понимать, что слова — не всегда главное. Такое внутреннее движение даёт больше свободы, чем любые внешние перемены, и именно оно определяет, кем ты станешь через год или десять. В мире, полном шума и поверхностных стимулов, способность оставаться внимательным — редкий дар. Она требует усилий, но открывает доступ к глубоким переживаниям: радости без причины, тонкой грусти, благодарности за простое. Такие состояния не купить, не выпросить и не ускорить. Их можно только вырастить внутри себя, если не бояться тишины и собственной уязвимости. И всё же мы часто убегаем — от себя, от времени, от правды. Но в какой-то момент понимаем: всё, что нужно, уже рядом. Оно не громкое, не блестящее, не драматичное. Это просто спокойствие, когда ты сидишь один и тебе достаточно.",
       "published_at": "2025-06-12"
     },
     {
       "id": "3",
-      "title": "a comment about post 3",
-      "image_url": "https://fastly.picsum.photos/id/701/280/150.jpg?hmac=zvx3020CuZy-edNC1AdW2fGk_LPD7IWjI8ERjCfZZj4",
+      "title": "Долгие разговоры под вечер",
+      "image_url": "https://fastly.picsum.photos/id/230/300/200.jpg?hmac=VVMe8CzEegYw1ywi_-8JRuQV6Ewc8PGAjLf-d5-lZD4",
       "content": "Долгие разговоры под вечер — одна из тех вещей, что не теряют ценности со временем. Когда слова текут свободно, без спешки, и в них нет цели — только присутствие. В такие моменты важно не то, о чём говорят, а как звучит голос, как свет ложится на лицо собеседника, как становится теплее внутри просто от того, что ты рядом с кем-то, кто тебя понимает. Жизнь не обязана быть великой, чтобы быть настоящей. Она может состоять из маленьких ритуалов: утреннего чая, прогулки с кошкой, чистого стола после уборки. И чем глубже ты в этих мелочах, тем яснее чувствуешь опору. Не на внешнее — а на внутреннее, на то, что не колеблется даже тогда, когда всё вокруг меняется. Иногда полезно остановиться и задать себе простой вопрос: «Чего я на самом деле хочу?» Не что от меня ждут, не что принято, а что действительно моё. Ответ может прийти не сразу. Он может молчать неделями, но если дать ему место и время, он проявится — тихо, без фанфар, но с такой силой, которую не перепутаешь ни с чем.",
       "published_at": "2025-06-12"
     },
     {
-      "id": "4",
-      "title": "a comment about post 4",
-      "image_url": "https://fastly.picsum.photos/id/218/280/150.jpg?hmac=swtNlzYZO2Lr96fHlOMLjBsc730eNAIP6FU3HVLkhgs",
-      "content": "This is a post about post 4",
+      "id": "0328",
+      "title": "разговоры с собой",
+      "image_url": "https://fastly.picsum.photos/id/423/300/200.jpg?hmac=sh-E4EaAaqCYPgyyAcuwMMRgc4b96HW27ph2F-Bm8lc",
+      "content": "Иногда лучший момент дня — это когда ты просто сидишь у окна и смотришь, как медленно просыпается улица. Всё кажется прежним, но внутри тебя уже начинается движение.",
       "published_at": "2025-06-12"
     },
     {
-      "id": "9",
-      "title": "a comment about post 9",
-      "image_url": "https://fastly.picsum.photos/id/1065/280/150.jpg?hmac=mU0xkpsH8eWRQmcj8i9Kz-W13rgnu6fDgwnnMQq1BUY",
-      "content": "This is a post about post 9",
-      "published_at": "2025-06-12"
+      "id": "2821",
+      "title": "тишина раннего утра",
+      "image_url": "https://fastly.picsum.photos/id/434/300/200.jpg?hmac=d_lsZvugLf5FBhJEHlA5W64vrusUmH_xFFt8zruga-E",
+      "content": "В каждом дне есть нечто невидимое, но ценное: тёплый взгляд, тихая радость, ощущение, что ты на своём месте. Это и есть жизнь.",
+      "published_at": "2025-06-13"
     },
     {
-      "id": "10",
-      "title": "a comment about post 10",
-      "image_url": "https://fastly.picsum.photos/id/220/280/150.jpg?hmac=3hrCLiIs6S79m9rxRpfJxkY95CEPFvqiZN35mhCrwFQ",
-      "content": "This is a post about post 10",
-      "published_at": "2025-06-12"
+      "id": "bbf9",
+      "title": "когда всё замирает",
+      "image_url": "https://fastly.picsum.photos/id/202/300/200.jpg?hmac=gWTu6BrY9Uo_dTLymHOkQUxDIBkgx8DUDtlb1r2txqw",
+      "content": "Есть нечто притягательное в обычном. В утреннем чае, в пустой улице, в звуках за окном. Эти мелочи — как якоря, возвращающие к себе.",
+      "published_at": "2025-06-14"
     },
     {
-      "id": "4e97",
-      "image_url": "https://fastly.picsum.photos/id/371/280/150.jpg?hmac=IHhVdZl3OjRC-LuQG37xrMB-Rr1id5LOG17fXFRjLlE",
-      "published_at": "1970-04-26 09:39",
-      "title": "12121212",
-      "content": "23232323232"
+      "id": "bf6c",
+      "title": "запах кофе и мысли о будущем",
+      "image_url": "https://fastly.picsum.photos/id/633/300/200.jpg?hmac=cRYYFONERdtzAEhTSVWbBL76hUhdpzzvDV1hGJw6ycw",
+      "content": "Иногда лучший момент дня — это когда ты просто сидишь у окна и смотришь, как медленно просыпается улица. Всё кажется прежним, но внутри тебя уже начинается движение.",
+      "published_at": "2025-06-15"
     },
     {
-      "id": "c76e",
-      "image_url": "https://fastly.picsum.photos/id/190/300/200.jpg?hmac=9v4sXBaDrcOhAYBO94DQpNBPJYmBomM0zgfnw0BZ5a8",
-      "published_at": "1970-02-26 10:59",
-      "title": "заголовок.......",
-      "content": "[vite] connecting... client:789:9[vite] connected. client:912:15[vite] hot updated: /src/pages/Post/Post.jsx client:883:32[vite] hot updated: /src/pages/Post/Post.jsx[vite] connecting... client:789:9[vite] connected. client:912:15[vite] hot updated: /src/pages/Post/Post.jsx client:883:32[vite] hot updated: /src/pages/Post/Post.jsx[vite] connecting... client:789:9[vite] connected. client:912:15[vite] hot updated: /src/pages/Post/Post.jsx client:883:32[vite] hot updated: /src/pages/Post/Post.jsx[vite] connecting... client:789:9[vite] connected. client:912:15[vite] hot updated: /src/pages/Post/Post.jsx client:883:32[vite] hot updated: /src/pages/Post/Post.jsx[vite] connecting... client:789:9[vite] connected. client:912:15[vite] hot updated: /src/pages/Post/Post.jsx client:883:32[vite] hot updated: /src/pages/Post/Post.jsx"
+      "id": "d145",
+      "title": "разговоры с собой",
+      "image_url": "https://fastly.picsum.photos/id/235/300/200.jpg?hmac=OgmBtL2QjDkQL7wZKMebAZnkfCuZs7GtBi9ngOokiWU",
+      "content": "Иногда лучший момент дня — это когда ты просто сидишь у окна и смотришь, как медленно просыпается улица. Всё кажется прежним, но внутри тебя уже начинается движение.",
+      "published_at": "2025-06-16"
+    },
+    {
+      "id": "fca8",
+      "title": "запах кофе и мысли о будущем",
+      "image_url": "https://fastly.picsum.photos/id/3/300/200.jpg?hmac=ula8zMkIchvBcwRqnDwGF7JjZXMpZwtHrEEHzqZPitU",
+      "content": "Бывают дни, когда всё внутри шепчет: «Остановись». И если прислушаться, можно обнаружить — ты уже на правильном пути.",
+      "published_at": "2025-06-17"
+    },
+    {
+      "id": "5946",
+      "title": "запах кофе и мысли о будущем",
+      "image_url": "https://fastly.picsum.photos/id/78/300/200.jpg?hmac=n7Sj8aECCS5WoJkWO-zflsPVDeezs5U4M7WgQjLACA0",
+      "content": "Бывают дни, когда всё внутри шепчет: «Остановись». И если прислушаться, можно обнаружить — ты уже на правильном пути.",
+      "published_at": "2025-06-18"
+    },
+    {
+      "id": "fcd0",
+      "title": "запах кофе и мысли о будущем",
+      "image_url": "https://fastly.picsum.photos/id/877/300/200.jpg?hmac=1XJcqWaNYVzuUOKHrKOqRkSEZUJrbfOrGTXyMdy7gvs",
+      "content": "Иногда лучший момент дня — это когда ты просто сидишь у окна и смотришь, как медленно просыпается улица. Всё кажется прежним, но внутри тебя уже начинается движение.",
+      "published_at": "2025-06-19"
+    },
+    {
+      "id": "4664",
+      "title": "мир, в котором хочется остаться",
+      "image_url": "https://fastly.picsum.photos/id/481/300/200.jpg?hmac=Ei8VeapfKpdgBDcRifRVXekhDLeFXMdAAM7nuMs0BOs",
+      "content": "Мы не обязаны быть продуктивными каждую минуту. Иногда важнее — просто быть. Слышать себя. Дышать ровно. И этого уже достаточно.",
+      "published_at": "2025-06-20"
+    },
+    {
+      "id": "0c52",
+      "title": "мир, в котором хочется остаться",
+      "image_url": "https://fastly.picsum.photos/id/1022/300/200.jpg?hmac=lAH3HnXViOLf3HvBF2RstEQhp4TOtW2FCEtVF6u1jRo",
+      "content": "Есть нечто притягательное в обычном. В утреннем чае, в пустой улице, в звуках за окном. Эти мелочи — как якоря, возвращающие к себе.",
+      "published_at": "2025-06-21"
+    },
+    {
+      "id": "2b64",
+      "title": "тишина раннего утра",
+      "image_url": "https://fastly.picsum.photos/id/638/300/200.jpg?hmac=9xOkRBwg2MqZ_drleWCgKt3px4vYconwkB2a9kUs-c0",
+      "content": "Мы не обязаны быть продуктивными каждую минуту. Иногда важнее — просто быть. Слышать себя. Дышать ровно. И этого уже достаточно.",
+      "published_at": "2025-06-22"
+    },
+    {
+      "id": "2579",
+      "title": "разговоры с собой",
+      "image_url": "https://fastly.picsum.photos/id/543/300/200.jpg?hmac=QSj6UnntEaEI80O_TpzyCFVynE32RSb3CuwqcnLm1eY",
+      "content": "Бывают дни, когда всё внутри шепчет: «Остановись». И если прислушаться, можно обнаружить — ты уже на правильном пути.",
+      "published_at": "2025-06-23"
+    },
+    {
+      "id": "bss9",
+      "title": "когда всё замирает",
+      "image_url": "https://fastly.picsum.photos/id/202/300/200.jpg?hmac=gWTu6BrY9Uo_dTLymHOkQUxDIBkgx8DUDtlb1r2txqw",
+      "content": "Есть нечто притягательное в обычном. В утреннем чае, в пустой улице, в звуках за окном. Эти мелочи — как якоря, возвращающие к себе.",
+      "published_at": "2025-06-24"
     }
   ],
   "comments": [
@@ -126,6 +182,34 @@
       "post_id": "7",
       "published_at": "1970-04-03 18:57",
       "content": "ываыва"
+    },
+    {
+      "id": "2d07",
+      "author_id": "1asd",
+      "post_id": "2",
+      "published_at": "1970-03-27 02:51",
+      "content": "rjvvvv\n"
+    },
+    {
+      "id": "0a08",
+      "author_id": "1asd",
+      "post_id": "2",
+      "published_at": "1970-04-25 18:35",
+      "content": "sdfsdfsdf"
+    },
+    {
+      "id": "a741",
+      "author_id": "1asd",
+      "post_id": "2",
+      "published_at": "1970-04-27 18:53",
+      "content": "sdfsfsfsdf"
+    },
+    {
+      "id": "afd4",
+      "author_id": "1asd",
+      "post_id": "3",
+      "published_at": "1970-01-29 16:40",
+      "content": "sdfsdf"
     }
   ],
   "sessions": [
