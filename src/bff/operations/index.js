@@ -11,3 +11,4 @@ export * from './remove-post';
 export * from './remove-user';
 export * from './save-post';
 export * from './update-user-role';
+export * from './fetch-posts';

@@ -15,3 +15,4 @@ export * from './http-client';
 export * from './set-user-role';
 export * from './udate-post';
 export * from './add-post';
+export * from './get-posts';
