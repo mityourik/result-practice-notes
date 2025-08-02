@@ -100,4 +100,5 @@ export const Users = styled(UsersContainer)`
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    height: calc(100vh - 199px);
 `;
