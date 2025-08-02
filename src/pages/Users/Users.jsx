@@ -18,7 +18,6 @@ const UsersContainer = ({ className }) => {
     const session = useSelector(selectUserSession);
 
     useEffect(() => {
-        // Не делаем запросы если пользователь не авторизован или нет сессии
         if (userRole === ROLE.GUEST || !session) {
             return;
         }

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const IconContainer = ({ className, id, isButton, ...rest }) => {
-    // isButton используется только для стилизации в styled-component
     const { isButton: _, ...domProps } = { isButton, ...rest };
     return (
         <div className={className} {...domProps}>

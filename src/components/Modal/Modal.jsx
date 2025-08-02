@@ -49,8 +49,6 @@ const ModalContainer = ({ className }) => {
     );
 };
 
-// display: ${(props) => (props.isOpen ? 'block' : 'none')};
-
 export const Modal = styled(ModalContainer)`
     position: fixed;
     top: 0;

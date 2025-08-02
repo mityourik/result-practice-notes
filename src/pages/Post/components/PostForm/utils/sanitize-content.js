@@ -3,10 +3,8 @@ export const sanitizeContent = (content) => {
         return '';
     }
 
-    // Удаляем HTML теги
     let sanitizedContent = content.replace(/<[^>]*>/g, '');
 
-    // Декодируем HTML сущности (например, &amp; -> &, &lt; -> <)
     sanitizedContent = sanitizedContent
         .replace(/&amp;/g, '&')
         .replace(/&lt;/g, '<')
@@ -16,9 +14,7 @@ export const sanitizeContent = (content) => {
         .replace(/&#x2F;/g, '/')
         .replace(/&nbsp;/g, ' ');
 
-    // Заменяем множественные пробелы и переносы строк на одиночные пробелы
     sanitizedContent = sanitizedContent.replace(/\s+/g, ' ');
 
-    // Убираем пробелы в начале и конце
     return sanitizedContent.trim();
 };

@@ -1,10 +1,10 @@
-import { getPosts, getComments } from '../api';
+import { getComments, getPosts } from '../api';
 import { formatError, getCommentsCount } from '../utils';
 
-export const fetchPosts = async () => {
+export const fetchPosts = async (page, limit) => {
     try {
-        const [posts, comments] = await Promise.all([
-            getPosts(),
+        const [{ posts, lastPage }, comments] = await Promise.all([
+            getPosts(page, limit),
             getComments(),
         ]);
 
@@ -24,10 +24,13 @@ export const fetchPosts = async () => {
 
         return {
             error: null,
-            res: posts.map((post) => ({
-                ...post,
-                commentsCount: getCommentsCount(comments, post.id),
-            })),
+            res: {
+                posts: posts.map((post) => ({
+                    ...post,
+                    commentsCount: getCommentsCount(comments, post.id),
+                })),
+                lastPage,
+            },
         };
     } catch (error) {
         return formatError(error);

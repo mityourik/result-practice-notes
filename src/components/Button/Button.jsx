@@ -27,14 +27,14 @@ export const Button = styled(ButtonContainer)`
         opacity 0.2s;
 
     &:hover {
-        background-color: rgb(220, 220, 220);
+        background-color: rgba(155, 143, 143, 1);
+        cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
     }
 
     &:disabled {
         background-color: #e0e0e0;
         color: #888;
         opacity: 0.6;
-        cursor: not-allowed;
         border-color: #bbb;
     }
 `;
