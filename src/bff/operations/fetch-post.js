@@ -24,17 +24,14 @@ export const fetchPost = async (postId) => {
 
         const commentsWithAuthors = comments.map((comment) => {
             if (comment.author) {
-                // Если у комментария уже есть поле author, используем его
                 return comment;
             } else if (comment.authorId) {
-                // Если есть только authorId, находим пользователя
                 const user = users.find(({ id }) => id === comment.authorId);
                 return {
                     ...comment,
                     author: user?.login || 'Неизвестный автор',
                 };
             } else {
-                // Если нет ни author, ни authorId
                 return {
                     ...comment,
                     author: 'Неизвестный автор',
