@@ -3,8 +3,9 @@ import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { setUser } from './actions';
-import { Footer, Modal, StyledHeader } from './components';
+import { Footer, Modal, StyledHeader, Error } from './components';
 import { Authorization, Main, Post, Registration, Users } from './pages';
+import { ERROR } from './constants';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -24,13 +25,6 @@ const AppColumn = styled.div`
     max-width: 900px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
     border-radius: 10px;
-`;
-
-const Div = styled.div`
-    text-align: center;
-    color: #333;
-    font-size: 1.2em;
-    margin: 0 0 10px 0;
 `;
 
 const Page = styled.div`
@@ -75,11 +69,7 @@ function Blog() {
                         <Route path="/post/:id/edit" element={<Post />} />
                         <Route
                             path="*"
-                            element={
-                                <Div>404 - Страница не найдена</Div> || (
-                                    <Div>Ошибка</Div>
-                                )
-                            }
+                            element={<Error error={ERROR.NOT_FOUND} />}
                         />
                     </Routes>
                 </Page>
