@@ -32,6 +32,7 @@ const Page = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    height: calc(100vh - 199px);
 `;
 
 function Blog() {

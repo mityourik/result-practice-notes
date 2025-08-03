@@ -6,7 +6,8 @@ import { loadPostAsync, RESET_POST_DATA } from '../../actions';
 import { useServerRequest } from '../../hooks';
 import { selectPost } from '../../selectors';
 import { Comments, PostContent, PostForm } from './components';
-import { Error } from '../../components';
+import { Error, PrivateContent } from '../../components';
+import { ROLE } from '../../constants';
 
 const emptyPost = {
     id: '',
@@ -22,8 +23,8 @@ const PostContainer = ({ className }) => {
     const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
     const params = useParams();
-    const isCreating = useMatch('/post');
-    const isEditing = useMatch('/post/:id/edit');
+    const isCreating = !!useMatch('/post');
+    const isEditing = !!useMatch('/post/:id/edit');
     const requestServer = useServerRequest();
     const post = useSelector(selectPost);
 
@@ -48,27 +49,21 @@ const PostContainer = ({ className }) => {
         return <div className={className}>Loading...</div>;
     }
 
-    return (
-        <div className={className}>
-            {error ? (
-                <Error error={error} />
-            ) : (
-                <>
-                    {isEditing || isCreating ? (
-                        <PostForm post={isCreating ? emptyPost : post} />
-                    ) : (
-                        <>
-                            <PostContent post={post} />
-                            <Comments
-                                comments={post.comments}
-                                postId={post.id}
-                            />
-                        </>
-                    )}
-                </>
-            )}
-        </div>
-    );
+    const SpecificPostPage =
+        isEditing || isCreating ? (
+            <PrivateContent access={[ROLE.ADMIN]} serverError={error}>
+                <div className={className}>
+                    <PostForm post={isCreating ? emptyPost : post} />
+                </div>
+            </PrivateContent>
+        ) : (
+            <div className={className}>
+                <PostContent post={post} />
+                <Comments comments={post.comments} postId={post.id} />
+            </div>
+        );
+
+    return error ? <Error error={error} /> : SpecificPostPage;
 };
 
 export const Post = styled(PostContainer)`

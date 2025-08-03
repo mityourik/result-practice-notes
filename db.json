@@ -12,6 +12,13 @@
       "login": "fgh",
       "password": "123123A",
       "registered_at": "1970-02-03 06:27",
+      "role_id": 1
+    },
+    {
+      "id": "403d",
+      "login": "user",
+      "password": "123123A",
+      "registered_at": "1970-02-03 07:27",
       "role_id": 2
     }
   ],
@@ -217,6 +224,20 @@
       "post_id": "bss9",
       "published_at": "1970-02-07 23:00",
       "content": "ываываыа\n"
+    },
+    {
+      "id": "6338",
+      "author_id": "1asd",
+      "post_id": "d145",
+      "published_at": "1970-03-03 09:12",
+      "content": "sdfsdfsf\n"
+    },
+    {
+      "id": "e071",
+      "author_id": "1asd",
+      "post_id": "fca8",
+      "published_at": "1970-03-15 22:10",
+      "content": "sdfsdfdf"
     }
   ],
   "sessions": [
@@ -474,14 +495,69 @@
       }
     },
     {
-      "id": "bc23",
-      "hash": "0.14710434352714951700136225554160773754119873046875",
+      "id": "bcec",
+      "hash": "0.80339437462478324736281365403556264936923980712891",
       "user": {
-        "id": "1asd",
-        "login": "asdASD",
+        "id": "403d",
+        "login": "user",
         "password": "123123A",
-        "registeredAt": "2025-06-12",
-        "roleId": 0
+        "registeredAt": "1970-02-03 06:27",
+        "roleId": 3
+      }
+    },
+    {
+      "id": "0f92",
+      "hash": "0.90778707489610910297272994284867309033870697021484",
+      "user": {
+        "id": "403d",
+        "login": "user",
+        "password": "123123A",
+        "registeredAt": "1970-02-03 06:27",
+        "roleId": 3
+      }
+    },
+    {
+      "id": "6cb5",
+      "hash": "0.56840379377010219474897212421637959778308868408203",
+      "user": {
+        "id": "403d",
+        "login": "user",
+        "password": "123123A",
+        "registeredAt": "1970-02-03 06:27",
+        "roleId": 3
+      }
+    },
+    {
+      "id": "68ca",
+      "hash": "0.28801005687667680099650624470086768269538879394531",
+      "user": {
+        "id": "403d",
+        "login": "user",
+        "password": "123123A",
+        "registeredAt": "1970-02-03 07:27",
+        "roleId": 3
+      }
+    },
+    {
+      "id": "4db9",
+      "hash": "0.71831430094227510796400792969507165253162384033203",
+      "user": {
+        "id": "403d",
+        "login": "user",
+        "password": "123123A",
+        "registeredAt": "1970-02-03 07:27",
+        "roleId": 3
+      }
+    },
+    {
+      "id": "1ab8",
+      "hash": "0.04024304189397331921185241299099288880825042724609",
+      "user": {
+        "id": "403d",
+        "login": "user",
+        "password": "123123A",
+        "registeredAt": "1970-02-03 07:27",
+        "roleId": 2
       }
     }
   ]
