@@ -1,6 +1,7 @@
-import { deleteComment, getComments, getPost } from '../api';
+import { deleteComment, getPost } from '../api';
 import { ROLE } from '../constants';
 import { sessions } from '../sessions';
+import { getPostCommentsWithAuthor } from '../utils';
 
 export const removeComment = async (hash, postId, commentId) => {
     const accessRoles = [ROLE.ADMIN, ROLE.MODERATOR];
@@ -17,11 +18,11 @@ export const removeComment = async (hash, postId, commentId) => {
     try {
         await deleteComment(commentId);
         const post = await getPost(postId);
-        const comments = await getComments(postId);
+        const commentsWithAuthors = await getPostCommentsWithAuthor(postId);
 
         return {
             error: null,
-            res: { ...post, comments },
+            res: { ...post, comments: commentsWithAuthors },
         };
     } catch (error) {
         return {

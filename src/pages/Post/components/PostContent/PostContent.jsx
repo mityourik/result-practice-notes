@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 import { H2 } from '../../../../components';
 import { Icon } from '../../../../components/Header/components/Icon/Icon';
 import { SpecialPanel } from '../SpecialPanel/SpecialPanel';
+import styled from 'styled-components';
 
 const PostContentContainer = ({
     className,
@@ -41,7 +41,7 @@ const PostContentContainer = ({
 export const PostContent = styled(PostContentContainer)`
     & .post-image {
         float: left;
-        margin: 0 27px 0px 0;
+        margin: 0 17px 10px 0;
     }
 
     & .post-text {

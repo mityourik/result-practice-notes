@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { setUser } from './actions';
-import { Footer, Modal, StyledHeader, Error } from './components';
-import { Authorization, Main, Post, Registration, Users } from './pages';
+import { Error, Footer, Modal, StyledHeader } from './components';
 import { ERROR } from './constants';
+import { Authorization, Main, Post, Registration, Users } from './pages';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
 const AppColumn = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    min-height: 100vh;
     background-color: #f0f0f0;
     margin: 0 auto;
     padding-top: 80px;
@@ -28,11 +28,11 @@ const AppColumn = styled.div`
 `;
 
 const Page = styled.div`
+    flex: 1;
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 30px;
-    height: calc(100vh - 199px);
 `;
 
 function Blog() {

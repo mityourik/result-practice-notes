@@ -75,6 +75,7 @@ const PostFormContainer = ({
                         size="1em"
                         id="fa-floppy-o"
                         onClick={onSave}
+                        margin="0 8px 0 0"
                     />
                 }
             />

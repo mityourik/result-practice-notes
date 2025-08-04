@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ControlPanel } from './components/ControlPanel/control-panel';
+import { ControlPanel } from './components/ControlPanel/ControlPanel';
 import { Logo } from './components/Logo';
 
 const Discription = styled.p`

@@ -1,46 +1,21 @@
-import { getComments, getPost, getUsers } from '../api';
-import { formatError } from '../utils';
+import { getPost } from '../api';
+import { formatError, getPostCommentsWithAuthor } from '../utils';
 
 export const fetchPost = async (postId) => {
+    let post;
+    let error;
+
     try {
-        const post = await getPost(postId);
-
-        if (!post) {
-            return {
-                error: 'Ошибка получения поста',
-                res: null,
-            };
-        }
-
-        let comments = [];
-        try {
-            comments = await getComments(postId);
-        } catch (commentError) {
-            console.warn('Не удалось загрузить комментарии:', commentError);
-            comments = [];
-        }
-
-        const users = await getUsers();
-
-        const commentsWithAuthors = comments.map((comment) => {
-            if (comment.author) {
-                return comment;
-            } else if (comment.authorId) {
-                const user = users.find(({ id }) => id === comment.authorId);
-                return {
-                    ...comment,
-                    author: user?.login || 'Неизвестный автор',
-                };
-            } else {
-                return {
-                    ...comment,
-                    author: 'Неизвестный автор',
-                };
-            }
-        });
-
-        return { error: null, res: { ...post, comments: commentsWithAuthors } };
-    } catch (error) {
-        return formatError(error);
+        post = await getPost(postId);
+    } catch (postError) {
+        error = postError;
     }
+
+    if (error) {
+        return { error: formatError(error), res: null };
+    }
+
+    const commentsWithAuthors = await getPostCommentsWithAuthor(postId);
+
+    return { error: null, res: { ...post, comments: commentsWithAuthors } };
 };

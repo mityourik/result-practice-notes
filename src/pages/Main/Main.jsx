@@ -108,12 +108,15 @@ const MainContainer = ({ className }) => {
 };
 
 export const Main = styled(MainContainer)`
+    width: 100%;
+
     & .post-list {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 15px;
         padding: 10px;
+        min-height: 400px;
     }
 
     & .no-posts {
@@ -123,6 +126,9 @@ export const Main = styled(MainContainer)`
         color: #666;
         border-radius: 8px;
         margin: 20px;
-        height: calc(100vh - 359px);
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 `;

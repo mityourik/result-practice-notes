@@ -156,20 +156,6 @@
   ],
   "comments": [
     {
-      "id": "b248",
-      "author_id": "1asd",
-      "post_id": "1",
-      "published_at": "1970-02-14 12:31",
-      "content": "sdfsdfsf"
-    },
-    {
-      "id": "638e",
-      "author_id": "1asd",
-      "post_id": "1",
-      "published_at": "1970-03-27 10:39",
-      "content": "sdfsfsdf"
-    },
-    {
       "id": "dc2c",
       "author_id": "1asd",
       "post_id": "1",
@@ -189,27 +175,6 @@
       "post_id": "7",
       "published_at": "1970-04-03 18:57",
       "content": "ываыва"
-    },
-    {
-      "id": "2d07",
-      "author_id": "1asd",
-      "post_id": "2",
-      "published_at": "1970-03-27 02:51",
-      "content": "rjvvvv\n"
-    },
-    {
-      "id": "0a08",
-      "author_id": "1asd",
-      "post_id": "2",
-      "published_at": "1970-04-25 18:35",
-      "content": "sdfsdfsdf"
-    },
-    {
-      "id": "a741",
-      "author_id": "1asd",
-      "post_id": "2",
-      "published_at": "1970-04-27 18:53",
-      "content": "sdfsfsfsdf"
     },
     {
       "id": "afd4",
@@ -238,6 +203,48 @@
       "post_id": "fca8",
       "published_at": "1970-03-15 22:10",
       "content": "sdfsdfdf"
+    },
+    {
+      "id": "2ca4",
+      "author_id": "403d",
+      "post_id": "bf6c",
+      "published_at": "1970-04-29 13:57",
+      "content": "Классная фотка !"
+    },
+    {
+      "id": "74c7",
+      "author_id": "1asd",
+      "post_id": "2",
+      "published_at": "1970-02-02 19:54",
+      "content": "Комментарий надежды"
+    },
+    {
+      "id": "a79d",
+      "author_id": "1asd",
+      "post_id": "fca8",
+      "published_at": "1970-04-16 09:17",
+      "content": "коммент к кофе"
+    },
+    {
+      "id": "20fd",
+      "author_id": "403d",
+      "post_id": "fca8",
+      "published_at": "1970-05-07 18:08",
+      "content": "И снова"
+    },
+    {
+      "id": "8b6b",
+      "author_id": "405d",
+      "post_id": "2",
+      "published_at": "1970-02-11 10:20",
+      "content": "Тт комменты ок"
+    },
+    {
+      "id": "7a35",
+      "author_id": "1asd",
+      "post_id": "bbf9",
+      "published_at": "1970-02-12 06:36",
+      "content": "sdfsf sdfsdf"
     }
   ],
   "sessions": [
@@ -550,14 +557,14 @@
       }
     },
     {
-      "id": "1ab8",
-      "hash": "0.04024304189397331921185241299099288880825042724609",
+      "id": "c5f7",
+      "hash": "0.33021224436687668379875049140537157654762268066406",
       "user": {
-        "id": "403d",
-        "login": "user",
+        "id": "1asd",
+        "login": "asdASD",
         "password": "123123A",
-        "registeredAt": "1970-02-03 07:27",
-        "roleId": 2
+        "registeredAt": "2025-06-12",
+        "roleId": 0
       }
     }
   ]

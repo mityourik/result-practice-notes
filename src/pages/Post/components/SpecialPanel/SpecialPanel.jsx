@@ -1,9 +1,12 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { CLOSE_MODAL, openModal, removePostAsync } from '../../../../actions';
 import { Icon } from '../../../../components/Header/components/Icon/Icon';
 import { useServerRequest } from '../../../../hooks';
+import { selectUserRole } from '../../../../selectors';
+import { checkAccess } from '../../../../utils';
+import { ROLE } from '../../../../constants';
 
 const SpecialPanelContainer = ({
     id,
@@ -29,6 +32,11 @@ const SpecialPanelContainer = ({
             })
         );
     };
+
+    const userRole = useSelector(selectUserRole);
+
+    const isAdmin = checkAccess([ROLE.ADMIN], userRole);
+
     return (
         <div className={className}>
             <div className="published-at">
@@ -36,18 +44,20 @@ const SpecialPanelContainer = ({
                     <Icon size="0.8em" margin="0 8px 0 0" id="fa-calendar-o" />
                 )}
                 {publishedAt}
-                <div className="buttons">
-                    {editButton}
-                    {publishedAt && !isNewPost && (
-                        <Icon
-                            isButton={true}
-                            size="1em"
-                            margin="0 8px 0 0"
-                            id="fa-trash-o"
-                            onClick={onPostRemove}
-                        />
-                    )}
-                </div>
+                {isAdmin && (
+                    <div className="buttons">
+                        {editButton}
+                        {publishedAt && !isNewPost && (
+                            <Icon
+                                isButton={true}
+                                size="1em"
+                                margin="0 8px 0 0"
+                                id="fa-trash-o"
+                                onClick={onPostRemove}
+                            />
+                        )}
+                    </div>
+                )}
             </div>
         </div>
     );

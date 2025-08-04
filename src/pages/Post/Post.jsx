@@ -68,7 +68,6 @@ const PostContainer = ({ className }) => {
 
 export const Post = styled(PostContainer)`
     padding: 0 80px 0 80px;
-    height: calc(100vh - 199px);
 
     & .error-message {
         background-color: #fee;

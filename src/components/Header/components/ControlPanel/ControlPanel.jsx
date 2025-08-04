@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { Button } from '../../..';
 import { logout } from '../../../../actions';
-import { Button } from '../../../../components';
 import { ROLE } from '../../../../constants';
 import {
     selectUserLogin,
@@ -10,6 +10,7 @@ import {
     selectUserSession,
 } from '../../../../selectors';
 import { Icon } from '../Icon/Icon';
+import { checkAccess } from '../../../../utils';
 
 const UserText = styled.p`
     font-weight: bold;
@@ -52,6 +53,8 @@ const ControlPanelContainer = ({ className }) => {
         sessionStorage.removeItem('userData');
     };
 
+    const isAdmin = checkAccess([ROLE.ADMIN], roleId);
+
     return (
         <div className={className}>
             <RightAligned>
@@ -84,12 +87,20 @@ const ControlPanelContainer = ({ className }) => {
                         isButton={true}
                     />
                 </StyledIcon>
-                <Link to="/post">
-                    <Icon size="18px" id="fa-file-text" isButton={true} />
-                </Link>
-                <Link to="/users">
-                    <Icon size="18px" id="fa-users" isButton={true} />
-                </Link>
+                {isAdmin && (
+                    <>
+                        <Link to="/post">
+                            <Icon
+                                size="18px"
+                                id="fa-file-text"
+                                isButton={true}
+                            />
+                        </Link>
+                        <Link to="/users">
+                            <Icon size="18px" id="fa-users" isButton={true} />
+                        </Link>
+                    </>
+                )}
             </RightAligned>
         </div>
     );
