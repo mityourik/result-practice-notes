@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const IconContainer = ({ className, id, isButton, ...rest }) => {
@@ -19,3 +20,8 @@ export const Icon = styled(IconContainer)`
         cursor: ${({ isButton }) => (isButton ? 'pointer' : 'default')};
     }
 `;
+
+Icon.propTypes = {
+    id: PropTypes.string.isRequired,
+    isButton: PropTypes.bool,
+};

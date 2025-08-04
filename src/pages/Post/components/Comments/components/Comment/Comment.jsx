@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
 import {
     CLOSE_MODAL,
     openModal,
@@ -9,6 +9,7 @@ import { Icon } from '../../../../../../components/Header/components/Icon/Icon';
 import { ROLE } from '../../../../../../constants';
 import { useServerRequest } from '../../../../../../hooks';
 import { selectUserRole } from '../../../../../../selectors';
+import styled from 'styled-components';
 
 const CommentContainer = ({
     className,
@@ -118,3 +119,11 @@ export const Comment = styled(CommentContainer)`
         line-height: 1.5;
     }
 `;
+
+Comment.propTypes = {
+    id: PropTypes.string.isRequired,
+    postId: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    publishedAt: PropTypes.string.isRequired,
+};

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
